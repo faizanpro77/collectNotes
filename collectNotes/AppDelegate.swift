@@ -8,6 +8,15 @@
 import UIKit
 import CoreData
 
+import IQKeyboardManagerSwift
+import FBSDKCoreKit
+import FacebookCore
+import FirebaseCore
+import Firebase
+import GoogleSignIn
+
+
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,8 +24,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //using IQkeyboardManager
+        IQKeyboardManager.shared.enable = true
+        
+        ApplicationDelegate.shared.application(
+                   application,
+                   didFinishLaunchingWithOptions: launchOptions
+               )
+        //firebase configuration
+        FirebaseApp.configure()
+        GIDConfiguration.init(clientID: "77360152208-29gv4tfc3o0hqca2eh43nirjpp5p1gvh.apps.googleusercontent.com")
+     
         return true
     }
+    
+    func application(
+            _ app: UIApplication,
+            open url: URL,
+            options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+        ) -> Bool {
+            
+            //facebook & google configuration
+            var flag: Bool = false
+            //facebook configuration
+           if ApplicationDelegate.shared.application(
+                app,
+                open: url,
+                sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+           ){
+               //URL schema facebook
+               flag = ApplicationDelegate.shared.application(
+                    app,
+                    open: url,
+                    sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                    annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+                    )
+           } else {
+               //URL Schema Google
+              flag = GIDSignIn.sharedInstance.handle(url)
+           }
+            return flag
+            
+            
+        }  
 
     // MARK: UISceneSession Lifecycle
 

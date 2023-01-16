@@ -5,7 +5,17 @@ target 'collectNotes' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-	pod 'TPKeyboardAvoiding'
+  pod 'IQKeyboardManagerSwift'
+  
+#  pod 'FBSDKLoginKit'
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
+
+  
 
   # Pods for collectNotes
 

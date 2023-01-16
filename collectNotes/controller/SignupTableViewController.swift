@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+import FirebaseFirestore
 
 class SignupTableViewController: UITableViewController {
     
@@ -55,6 +58,7 @@ class SignupTableViewController: UITableViewController {
                     if password == conPassword {
                         //navigation code
                         print("navigation code.....")
+                        firbaseAuthEmailPassword()
                     } else {
                         print("password does not match")
                     }
@@ -72,6 +76,62 @@ class SignupTableViewController: UITableViewController {
     
     @IBAction func btnLoginClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func firbaseAuthEmailPassword()
+    {
+        //create clean version of data or remove spaces
+        
+        let userName = txtUsername.text!.trimmingCharacters(in: .whitespaces)
+        let email = txtEmail.text!.trimmingCharacters(in: .whitespaces)
+        let password = txtPassword.text!.trimmingCharacters(in: .whitespaces)
+        
+        print("email======> \(email)")
+        print("password====> \(password)")
+        
+        //create user
+        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+            //there was an error creating the user or check for errors
+            if err != nil {
+                self.showError("Error creating user")
+                print("Error creating user")
+            } else {
+                //user are created sucessfully now stored user details
+                let db = Firestore.firestore()
+                let uid = result!.user.uid
+                db.collection("users").document(uid).setData(["userName": userName, "email": email, "uid": uid, "password": password]) { (error) in
+                    if error != nil {
+                        //show error message
+                        self.showError("Error saving user data")
+                        print("Error saving user data")
+                    } else {
+                        //navigate to dashboard
+                        print("navigate to dashboard")
+                        //save token in NS user default
+                        UserManager.shared.saveToken(token: uid)
+                        self.transitionToHome()
+                    }
+                }
+                //Dismisses the view controller that was presented modally by the view controller.
+//                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func showError(_ message: String){
+        //        errorLabel.text = message
+        //        errorLabel.alpha = 1
+    }
+    
+    //method for navigate controller to home screen
+    func transitionToHome() {
+        
+//        view.window?.rootViewController = ContainerController()
+//        view.window?.makeKeyAndVisible()
+        print("navigate to dashboard")
+        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.dashboardViewController) as! DashboardViewController
+        self.navigationController?.pushViewController(homeViewController, animated: true)
         
     }
     

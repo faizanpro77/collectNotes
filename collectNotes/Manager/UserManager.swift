@@ -26,4 +26,8 @@ class UserManager {
        
         return Auth.auth().currentUser?.uid != nil
     }
+    
+    func getToken() -> String? {
+       return UserDefaults.standard.string(forKey: UserDefaultsKey.uid)
+    }
 }

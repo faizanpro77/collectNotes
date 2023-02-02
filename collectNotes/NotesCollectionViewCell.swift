@@ -19,7 +19,7 @@ class NotesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        print("awakeFromNib called===============>")
+//        print("awakeFromNib called===============>")
         labelTitle.textColor = .black
         labelDescription.textColor = .gray
         labelTitle.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
@@ -35,7 +35,7 @@ class NotesCollectionViewCell: UICollectionViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("layoutSubviews called===============>")
+//        print("layoutSubviews called===============>")
         layer.borderColor = UIColor.gray.cgColor
         layer.cornerRadius = 10
         layer.borderWidth = 1

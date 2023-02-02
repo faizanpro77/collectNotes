@@ -22,6 +22,18 @@ class LoginTableViewController: UITableViewController {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnFacebook: FBLoginButton!
+
+        weak var loginDelegate: LoginSuccessDelegate?
+  
+    
+    
+    
+    @IBAction func autoFillPassword(_ sender: UIButton) {
+    
+        txtEmail.text = "faizyshaikh204@gmail.com"
+        txtPassword.text = "password7"
+//        print("==================>\(txtEmail.text!)======>\(txtPassword.text!)")
+    }
     
     
     
@@ -38,7 +50,7 @@ class LoginTableViewController: UITableViewController {
     }
     
     
-    
+   
     @IBAction func btnLoginClicked(_ sender: UIButton) {
         emailPasswordValidation()
     }
@@ -63,12 +75,14 @@ class LoginTableViewController: UITableViewController {
         
         //        view.window?.rootViewController = ContainerController()
         //        view.window?.makeKeyAndVisible()
+        
         print("navigate to dashboard")
-        
-        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.dashboardViewController) as! DashboardViewController
-        self.navigationController?.pushViewController(homeViewController, animated: true)
-        
-        
+        loginDelegate?.loginSuccess(faizString: "faizan login sucessful protocol")
+
+        self.navigationController?.popViewController(animated: true)
+       
+        //to dismiss present controller
+//        self.dismiss(animated: true)
     }
     
     
@@ -89,9 +103,13 @@ class LoginTableViewController: UITableViewController {
     
     @IBAction func btnSignupClicked(_ sender: UIButton) {
         
-        if let signupVC = self.storyboard?.instantiateViewController(identifier: "SignupTableViewController") as? SignupTableViewController {
-            self.navigationController?.pushViewController(signupVC, animated: true)
-        }
+//        if let signupVC = self.storyboard?.instantiateViewController(identifier: "SignupTableViewController") as? SignupTableViewController {
+//            self.navigationController?.pushViewController(signupVC, animated: true)
+//        }
+        
+        let signupVC = self.storyboard?.instantiateViewController(identifier: "SignupTableViewController") as! SignupTableViewController
+            self.navigationController!.pushViewController(signupVC, animated: true)
+        
     }
     
     //to check user login or not if login we get user information
@@ -243,13 +261,13 @@ extension LoginTableViewController: LoginButtonDelegate {
         
         let request =  FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "id, email, first_name, last_name, picture, short_name, name, middle_name, name_format,age_range"], tokenString: token, version: nil, httpMethod: .get)
         request.start { connection, result, error in
-            print("delegate=====>\(result)")
+            print("delegate=====>\(String(describing: result))")
         }
     }
     
-    //this function called after click to logout  button
+    //this function called after click to logout  button if we login with facebook
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("Logout")
+        print("===============>>Logout")
     }
 }
 

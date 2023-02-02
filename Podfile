@@ -5,7 +5,7 @@ target 'collectNotes' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'IQKeyboardManagerSwift'
+  # pod 'IQKeyboardManagerSwift'
   
 #  pod 'FBSDKLoginKit'
 pod 'Firebase/Core'

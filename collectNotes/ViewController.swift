@@ -4,26 +4,39 @@
 //
 //  Created by MD Faizan on 16/12/22.
 //
-
-
+/**shaibaz mobile screen shots
+1)how keyboard close of create screen
+ 
+ *don*
+ 1)empty note create errore box
+ 2)colour pallet
+ 3)keyboar with buttom bar
+ 
+ */
 /**
  //  faizyshaikh204@gmail.com
  //  password7
  
+question
+how i know i am clicking perticulat text view
+ 
  today task
  
- 1)auto height text scroll  both
- 2)dynamic cell note
- 3)after openinig keyboard bottom bar hide
- 4)text view placeholder
- 5)bottom sheet
- 6)drawer
- 7)saperate firbaseloginservices quries
- 8)pin,archive,trash
- 9)label
- 10)reminder,push notification,local notification
- 11)login back button remove
  
+ 
+ 2)after openinig keyboard bottom bar hide
+ 5)after scrolling bottom text  of description hide 7 line
+ 1)dynamic cell note
+ 6)bottom sheet
+ 7)drawer
+ 8)saperate firbaseloginservices quries
+ 9)pin,archive,trash
+ 10)label
+ 11)reminder,push notification,local notification
+ 12)login back button remove
+ 
+ **pending**
+ 1)text view placeholder note work like after entering go to next textview field and after entering not go to next line...textview place after enrter gonin to next text view after press enter not working
  
  **die list**
  1)check firebase work
@@ -39,8 +52,8 @@
  11)connect create new note screen with firebase
  12)create note screen ui
  13)update note with firebase
- 14)
- 
+ 14)auto height text scroll  both
+ 6)after pressing enter go next textview
  
  
  pending

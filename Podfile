@@ -14,7 +14,7 @@ pod 'GoogleSignIn'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
-
+pod 'KMPlaceholderTextView'
   
 
   # Pods for collectNotes

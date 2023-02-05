@@ -68,7 +68,7 @@ class FirebaseNoteService {
                     )
                     
                     notesArray.append(note)
-                    print("documentData======>",documentData,"======>",docId)
+//                    print("documentData======>",documentData,"======>",docId)
                     
                 }
                 completion(notesArray)

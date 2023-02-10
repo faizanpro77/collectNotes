@@ -20,23 +20,30 @@
 question
 how i know i am clicking perticulat text view
  
+
  today task
+
  
+ 1)grid list
+ 2)archive
+ 3)trash
+ 4)pin
+ 5)drawer
+ 6)label
+ 7)dynamic cell note
+ 8)seperate protocol file
+ 9)saperate firbase loginservices quries
+ 10)reminder,push notification,local notification
+ 11)if user update or edite then only firebase query run
+ 12)store user id in local ns user and every time check from nsuser default
+ 13)password security hide
  
- 
- 2)after openinig keyboard bottom bar hide
- 5)after scrolling bottom text  of description hide 7 line
- 1)dynamic cell note
- 6)bottom sheet
- 7)drawer
- 8)saperate firbaseloginservices quries
- 9)pin,archive,trash
- 10)label
- 11)reminder,push notification,local notification
- 12)login back button remove
  
  **pending**
  1)text view placeholder note work like after entering go to next textview field and after entering not go to next line...textview place after enrter gonin to next text view after press enter not working
+ 2)text view show only some after scrolling it left some text after entering character it show full text after scrolling
+ 3)after creating empty note go to deshboard and show notification notification (demo)
+ 
  
  **die list**
  1)check firebase work
@@ -54,10 +61,14 @@ how i know i am clicking perticulat text view
  13)update note with firebase
  14)auto height text scroll  both
  6)after pressing enter go next textview
- 
- 
+ 2)after openinig keyboard bottom bar hide
+ 5)after scrolling bottom text  of description hide 7 line
  pending
  google facebook navigation dashboard
+ 12)login back button change iphon back button
+ 6)bottom sheet
+ 
+ 
  */
 
 

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Codable is a type alias for the Encodable and Decodable protocols
 struct Note:Codable {
     
     var title: String

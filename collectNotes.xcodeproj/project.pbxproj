@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F1BB7CFC00AE022C70C3B6A /* Pods_collectNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6650C1DA7457B6DEC6BC79FE /* Pods_collectNotes.framework */; };
 		2B213392297AAC9700A05B01 /* FirebaseNoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */; };
+		2B44E0AE299163F2001FBD90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B44E0AD299163F2001FBD90 /* AuthService.swift */; };
 		2B65FF532969871A0081F14D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65FF522969871A0081F14D /* UserManager.swift */; };
 		2B65FF562969973B0081F14D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65FF552969973B0081F14D /* Constants.swift */; };
 		2B76440729866D31002BB73B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76440629866D31002BB73B /* Note.swift */; };
@@ -20,6 +21,9 @@
 		2B7F777A294C64C20023CC35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B7F7779294C64C20023CC35 /* Assets.xcassets */; };
 		2B7F777D294C64C20023CC35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B7F777B294C64C20023CC35 /* LaunchScreen.storyboard */; };
 		2B7F7786294DD0570023CC35 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F7785294DD0570023CC35 /* LoginTableViewController.swift */; };
+		2BA560902994EE120048C5F5 /* MenueBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA5608F2994EE120048C5F5 /* MenueBottomSheetViewController.swift */; };
+		2BAB0857299222AE00D4FD67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB0856299222AE00D4FD67 /* User.swift */; };
+		2BAB085A29929EEA00D4FD67 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */; };
 		2BB052AB29560BBC0087163B /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB052AA29560BBC0087163B /* UIViewController + Extension.swift */; };
 		2BB052AD2956E7740087163B /* SignupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB052AC2956E7740087163B /* SignupTableViewController.swift */; };
 		2BB052B0295ECF990087163B /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 2BB052AF295ECF990087163B /* FacebookAEM */; };
@@ -38,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNoteService.swift; sourceTree = "<group>"; };
+		2B44E0AD299163F2001FBD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B65FF522969871A0081F14D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2B65FF552969973B0081F14D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B76440629866D31002BB73B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -51,6 +56,9 @@
 		2B7F777C294C64C20023CC35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B7F777E294C64C20023CC35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B7F7785294DD0570023CC35 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
+		2BA5608F2994EE120048C5F5 /* MenueBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenueBottomSheetViewController.swift; sourceTree = "<group>"; };
+		2BAB0856299222AE00D4FD67 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		2BB052AA29560BBC0087163B /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		2BB052AC2956E7740087163B /* SignupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTableViewController.swift; sourceTree = "<group>"; };
 		2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 			children = (
 				2B65FF522969871A0081F14D /* UserManager.swift */,
 				2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */,
+				2B44E0AD299163F2001FBD90 /* AuthService.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -104,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				2B76440629866D31002BB73B /* Note.swift */,
+				2BAB0856299222AE00D4FD67 /* User.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -129,10 +139,11 @@
 		2B7F776C294C64BE0023CC35 /* collectNotes */ = {
 			isa = PBXGroup;
 			children = (
-				2B76440529866CD9002BB73B /* model */,
 				2B7F776D294C64BE0023CC35 /* AppDelegate.swift */,
 				2B7F776F294C64BE0023CC35 /* SceneDelegate.swift */,
 				2B7F7771294C64BE0023CC35 /* ViewController.swift */,
+				2BAB085829929E4000D4FD67 /* Component */,
+				2B76440529866CD9002BB73B /* model */,
 				2B7F7784294C6C060023CC35 /* controller */,
 				2B65FF54296987250081F14D /* Manager */,
 				2BEA194F2955AF4600C4ACDC /* utill */,
@@ -156,6 +167,15 @@
 				2BF9340F298842B100E133DF /* NoteDetailViewController.swift */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		2BAB085829929E4000D4FD67 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */,
+				2BA5608F2994EE120048C5F5 /* MenueBottomSheetViewController.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		2BEA194F2955AF4600C4ACDC /* utill */ = {
@@ -306,6 +326,7 @@
 			files = (
 				2B7F7786294DD0570023CC35 /* LoginTableViewController.swift in Sources */,
 				2BF93410298842B100E133DF /* NoteDetailViewController.swift in Sources */,
+				2BA560902994EE120048C5F5 /* MenueBottomSheetViewController.swift in Sources */,
 				2BB052AD2956E7740087163B /* SignupTableViewController.swift in Sources */,
 				2B7F7778294C64BE0023CC35 /* collectNotes.xcdatamodeld in Sources */,
 				2BB052AB29560BBC0087163B /* UIViewController + Extension.swift in Sources */,
@@ -317,7 +338,10 @@
 				2B7F776E294C64BE0023CC35 /* AppDelegate.swift in Sources */,
 				2BEA19572955C51D00C4ACDC /* UIAlertController + Extension.swift in Sources */,
 				2B213392297AAC9700A05B01 /* FirebaseNoteService.swift in Sources */,
+				2BAB085A29929EEA00D4FD67 /* BottomSheetViewController.swift in Sources */,
 				2B65FF532969871A0081F14D /* UserManager.swift in Sources */,
+				2BAB0857299222AE00D4FD67 /* User.swift in Sources */,
+				2B44E0AE299163F2001FBD90 /* AuthService.swift in Sources */,
 				2B65FF562969973B0081F14D /* Constants.swift in Sources */,
 				2B7F7770294C64BE0023CC35 /* SceneDelegate.swift in Sources */,
 			);
@@ -474,6 +498,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,6 +527,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

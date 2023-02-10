@@ -14,8 +14,11 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var collectionViewDashboard: UICollectionView!
     @IBOutlet weak var ViewBottomTabBar: UIView!
     @IBOutlet weak var ButtonCreateNewNote: UIButton!
+    @IBOutlet weak var gridListButton: UIButton!
     
-//    var checkFirebaseLogin = Auth.auth().currentUser?.uid
+    
+    //    var checkFirebaseLogin = Auth.auth().currentUser?.uid
+    var isGridListActive:Bool = false
     
     
     override func viewDidLoad() {
@@ -37,10 +40,12 @@ class DashboardViewController: UIViewController {
         //it is use for collection view bottom and top space
         collectionViewDashboard.contentInset.top = 20
         collectionViewDashboard.contentInset.bottom = 20
+        
+    
     }
     
     
-//    var notes:[String] = ["Bedsheets&Bedsheets&","BedsheetsklgfjBedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&sjflsgk","good boy","hero panti","Furniture","kitchen","plane","bike","good","boy"]
+    //    var notes:[String] = ["Bedsheets&Bedsheets&","BedsheetsklgfjBedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&sjflsgk","good boy","hero panti","Furniture","kitchen","plane","bike","good","boy"]
     
     
     var notes: [Note] = [Note(title: "Loading", description: "......", id: "1")]
@@ -51,13 +56,16 @@ class DashboardViewController: UIViewController {
             self.collectionViewDashboard.reloadData()
             
         }
+        
     }
+    
     
     //This is called just before the view controller is added to the view hierarchy and shown to the user.
     //You can override this method to perform custom tasks associated with displaying the view.
-
+    
     override func viewWillAppear(_ animated: Bool) {
         getNotes()
+        
     }
     
     
@@ -70,7 +78,7 @@ class DashboardViewController: UIViewController {
         //*every time check user login or not if don't login then navigate to  login screen if login then stay at same screen
         //it called when user not login
         if UserManager.shared.getToken() == nil {
-//            print(">>>>>>>>>>>>>>>>>>e> user note login")
+            //            print(">>>>>>>>>>>>>>>>>>e> user note login")
             
             
             let logintableVc = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.loginTableViewController) as! LoginTableViewController
@@ -82,17 +90,17 @@ class DashboardViewController: UIViewController {
             print(">>>>>>>>>>>>>>>>>>>>>e> user login \(UserManager.shared.getToken()!)")
             
         }
-       
+        
         
         //        *this property use when we present screen
-       
+        
         //        logintableVc.modalTransitionStyle = .flipHorizontal
         //        logintableVc.modalPresentationStyle = .fullScreen
         
         
         
         //        *this property use if we want to make controller to root view controller
-       
+        
         //        let loginNavigationController = UINavigationController(rootViewController: logintableVc)
         //        loginNavigationController.modalPresentationStyle = .fullScreen
         //        self.present(loginNavigationController, animated: false, completion: nil)
@@ -105,7 +113,7 @@ class DashboardViewController: UIViewController {
     
     
     @IBAction func showProfile(_ sender: UIButton) {
-//        print("==========> inside show profile====")
+        //        print("==========> inside show profile====")
         
         
         if UserManager.shared.getToken() != nil {
@@ -121,7 +129,7 @@ class DashboardViewController: UIViewController {
     }
     
     func gotoLoginScreen() {
-//        print("==========> inside gotoLoginScreen")
+        //        print("==========> inside gotoLoginScreen")
         //remove uid from ns user default
         UserManager.shared.logout()
         
@@ -131,7 +139,7 @@ class DashboardViewController: UIViewController {
         
         self.navigationController?.pushViewController(logintableVc, animated: true)
         
-//        self.present(logintableVc, animated: false, completion: nil)
+        //        self.present(logintableVc, animated: false, completion: nil)
         
     }
     
@@ -140,6 +148,15 @@ class DashboardViewController: UIViewController {
         let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as! NoteDetailViewController
         noteDetailController.modalPresentationStyle = .fullScreen
         self.present(noteDetailController, animated: true, completion: nil)
+    }
+    
+    
+    //to grid and list collection view
+    @IBAction func toggleGridList(_ sender: Any) {
+        let image = isGridListActive ? UIImage(systemName: "square.grid.2x2") : UIImage(systemName: "rectangle.grid.1x2")
+        gridListButton.configuration?.image = image
+        isGridListActive.toggle()
+        collectionViewDashboard.reloadData()
     }
 }
 
@@ -160,8 +177,8 @@ extension DashboardViewController: UICollectionViewDelegate,UICollectionViewData
         cell.labelTitle.text = note.title
         cell.labelDescription.text = note.description
         
-//        cell.labelTitle.text = notes[indexPath.row].title
-//       cell.labelDescription.text = notes[indexPath.row].description
+        //        cell.labelTitle.text = notes[indexPath.row].title
+        //       cell.labelDescription.text = notes[indexPath.row].description
         
         //        cell.layer.cornerRadius = 10
         //        cell.layer.borderWidth = 1
@@ -171,9 +188,16 @@ extension DashboardViewController: UICollectionViewDelegate,UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = ((collectionView.frame.width - 15) / 2) // 15 because of paddings
+      
         //        print("cell width ====>: \(width)")
+        var width:CGFloat = (collectionView.frame.width - 15) / 2
        
+        if isGridListActive {
+            width = collectionView.frame.width
+        } else {
+            width = (collectionView.frame.width - 15) / 2
+        }
+        
         return CGSize(width: width, height: 200)
     }
     
@@ -184,28 +208,27 @@ extension DashboardViewController: UICollectionViewDelegate,UICollectionViewData
         noteDetailController.noteType = .update
         present(noteDetailController, animated: true, completion: nil)
     }
-    
 }
 
 
 extension DashboardViewController:LoginSuccessDelegate {
-
+    
     //it called when we are going from login to dashbboard it pass data
     func loginSuccess(faizString: String) {
-
+        
         //Table view reload
         //        //views unhide
         //        //faizanString
-
-//        print("===============>\(faizString)")
-
+        
+        //        print("===============>\(faizString)")
+        
         ViewTopNavigationBar.isHidden = false
         collectionViewDashboard.isHidden = false
         ViewBottomTabBar.isHidden = false
         ButtonCreateNewNote.isHidden = false
-
+        
     }
-
+    
     
     func loginFailure() {
         print("login fail due to some error")

@@ -7,6 +7,7 @@ target 'collectNotes' do
 
   # pod 'IQKeyboardManagerSwift'
   
+#pods for firebase
 #  pod 'FBSDKLoginKit'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
@@ -14,7 +15,11 @@ pod 'GoogleSignIn'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
+
+#pods for textview placeholder
 pod 'KMPlaceholderTextView'
+
+
   
 
   # Pods for collectNotes

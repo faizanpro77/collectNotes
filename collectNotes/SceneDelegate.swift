@@ -8,9 +8,14 @@
 import UIKit
 import FacebookCore
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+ //window is accebile from each class once you define object of appdelegate
     var window: UIWindow?
+   
+    
+   
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         guard let url = URLContexts.first?.url else {
@@ -31,7 +36,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        guard let _ = (scene as? UIWindowScene) else { return }
+//        guard let _ = (scene as? UIWindowScene) else { return }
+        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+
         
     }
 

@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		0F1BB7CFC00AE022C70C3B6A /* Pods_collectNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6650C1DA7457B6DEC6BC79FE /* Pods_collectNotes.framework */; };
 		2B213392297AAC9700A05B01 /* FirebaseNoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */; };
+		2B2A64CE29A3C065004C3CB6 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */; };
 		2B44E0AE299163F2001FBD90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B44E0AD299163F2001FBD90 /* AuthService.swift */; };
 		2B65FF532969871A0081F14D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65FF522969871A0081F14D /* UserManager.swift */; };
 		2B65FF562969973B0081F14D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65FF552969973B0081F14D /* Constants.swift */; };
 		2B76440729866D31002BB73B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76440629866D31002BB73B /* Note.swift */; };
+		2B796D58299AA00A00F5047E /* SideDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */; };
+		2B796D5A299CF62400F5047E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B796D59299CF62400F5047E /* TableViewCell.swift */; };
 		2B7F776E294C64BE0023CC35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F776D294C64BE0023CC35 /* AppDelegate.swift */; };
 		2B7F7770294C64BE0023CC35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F776F294C64BE0023CC35 /* SceneDelegate.swift */; };
 		2B7F7772294C64BE0023CC35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F7771294C64BE0023CC35 /* ViewController.swift */; };
@@ -32,6 +35,7 @@
 		2BB052B6295ECF9A0087163B /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 2BB052B5295ECF9A0087163B /* FacebookGamingServices */; };
 		2BB052B8295ECF9A0087163B /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 2BB052B7295ECF9A0087163B /* FacebookLogin */; };
 		2BB052BA295ECF9A0087163B /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 2BB052B9295ECF9A0087163B /* FacebookShare */; };
+		2BE422542997C3EA001104C2 /* drawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE422532997C3EA001104C2 /* drawerController.swift */; };
 		2BE883332973EBDF003109CC /* NotesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */; };
 		2BE883352973EC8E003109CC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE883342973EC8E003109CC /* DashboardViewController.swift */; };
 		2BEA19552955B0E500C4ACDC /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA19542955B0E500C4ACDC /* String + Extension.swift */; };
@@ -42,10 +46,13 @@
 
 /* Begin PBXFileReference section */
 		2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNoteService.swift; sourceTree = "<group>"; };
+		2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		2B44E0AD299163F2001FBD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B65FF522969871A0081F14D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2B65FF552969973B0081F14D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B76440629866D31002BB73B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideDrawerViewController.swift; sourceTree = "<group>"; };
+		2B796D59299CF62400F5047E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2B7F776A294C64BE0023CC35 /* collectNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = collectNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B7F776D294C64BE0023CC35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B7F776F294C64BE0023CC35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 		2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		2BB052AA29560BBC0087163B /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		2BB052AC2956E7740087163B /* SignupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTableViewController.swift; sourceTree = "<group>"; };
+		2BE422532997C3EA001104C2 /* drawerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawerController.swift; sourceTree = "<group>"; };
 		2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BE883342973EC8E003109CC /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		2BEA19542955B0E500C4ACDC /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
@@ -148,7 +156,6 @@
 				2B65FF54296987250081F14D /* Manager */,
 				2BEA194F2955AF4600C4ACDC /* utill */,
 				2B7F7773294C64BE0023CC35 /* Main.storyboard */,
-				2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */,
 				2B7F7779294C64C20023CC35 /* Assets.xcassets */,
 				2B7F777B294C64C20023CC35 /* LaunchScreen.storyboard */,
 				2B7F777E294C64C20023CC35 /* Info.plist */,
@@ -164,7 +171,10 @@
 				2B7F7785294DD0570023CC35 /* LoginTableViewController.swift */,
 				2BB052AC2956E7740087163B /* SignupTableViewController.swift */,
 				2BE883342973EC8E003109CC /* DashboardViewController.swift */,
+				2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */,
 				2BF9340F298842B100E133DF /* NoteDetailViewController.swift */,
+				2BE422532997C3EA001104C2 /* drawerController.swift */,
+				2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -174,6 +184,8 @@
 			children = (
 				2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */,
 				2BA5608F2994EE120048C5F5 /* MenueBottomSheetViewController.swift */,
+				2B796D59299CF62400F5047E /* TableViewCell.swift */,
+				2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -330,12 +342,16 @@
 				2BB052AD2956E7740087163B /* SignupTableViewController.swift in Sources */,
 				2B7F7778294C64BE0023CC35 /* collectNotes.xcdatamodeld in Sources */,
 				2BB052AB29560BBC0087163B /* UIViewController + Extension.swift in Sources */,
+				2B796D5A299CF62400F5047E /* TableViewCell.swift in Sources */,
+				2B2A64CE29A3C065004C3CB6 /* ArchiveViewController.swift in Sources */,
 				2BE883332973EBDF003109CC /* NotesCollectionViewCell.swift in Sources */,
 				2B76440729866D31002BB73B /* Note.swift in Sources */,
+				2B796D58299AA00A00F5047E /* SideDrawerViewController.swift in Sources */,
 				2BEA19552955B0E500C4ACDC /* String + Extension.swift in Sources */,
 				2B7F7772294C64BE0023CC35 /* ViewController.swift in Sources */,
 				2BE883352973EC8E003109CC /* DashboardViewController.swift in Sources */,
 				2B7F776E294C64BE0023CC35 /* AppDelegate.swift in Sources */,
+				2BE422542997C3EA001104C2 /* drawerController.swift in Sources */,
 				2BEA19572955C51D00C4ACDC /* UIAlertController + Extension.swift in Sources */,
 				2B213392297AAC9700A05B01 /* FirebaseNoteService.swift in Sources */,
 				2BAB085A29929EEA00D4FD67 /* BottomSheetViewController.swift in Sources */,

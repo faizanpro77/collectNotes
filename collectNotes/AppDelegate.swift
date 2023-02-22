@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import CoreData
 
+import CoreData
 import FBSDKCoreKit
 import FacebookCore
 import FirebaseCore
@@ -15,11 +15,10 @@ import Firebase
 import GoogleSignIn
 
 
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -33,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //firebase configuration
         FirebaseApp.configure()
         GIDConfiguration.init(clientID: "77360152208-29gv4tfc3o0hqca2eh43nirjpp5p1gvh.apps.googleusercontent.com")
-     
+        
+       
         return true
     }
     

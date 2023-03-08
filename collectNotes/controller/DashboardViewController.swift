@@ -16,7 +16,7 @@ import FirebaseAuth
  life cycle method
  ibaction
  setup method
-normal method
+ normal method
  
  varaible,function,iboutlet,ibaction===>small,camal case
  class name,structure,enum,protocol,controller name===>capital
@@ -38,9 +38,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var ViewBottomTabBar: UIView!
     @IBOutlet weak var ButtonCreateNewNote: UIButton!
     @IBOutlet weak var gridListButton: UIButton!
-    @IBOutlet weak var backViewForDrawer: UIView!
-    @IBOutlet weak var drawerView: UIView!
-    @IBOutlet weak var leadingConstraintForDrawerView: NSLayoutConstraint!
+    
+    
     
     //    var checkFirebaseLogin = Auth.auth().currentUser?.uid
     var isGridListActive:Bool = false
@@ -48,7 +47,7 @@ class DashboardViewController: UIViewController {
     private var isSideDrawerMenuShown:Bool = false
     private var beginPoint:CGFloat = 0.0
     private var difference:CGFloat = 0.0
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +69,9 @@ class DashboardViewController: UIViewController {
         collectionViewDashboard.contentInset.top = 20
         collectionViewDashboard.contentInset.bottom = 20
         
-        backViewForDrawer.isHidden = true
         
-    
+        
+        
     }
     
     
@@ -81,10 +80,7 @@ class DashboardViewController: UIViewController {
     
     
     
-    @IBAction func tapedOnDrawerBackView(_ sender: UITapGestureRecognizer) {
-        
-        self.hideSideDrawerMenue()
-    }
+    
     
     var notes: [Note] = [Note(title: "Loading", description: "......", id: "1")]
     
@@ -125,7 +121,8 @@ class DashboardViewController: UIViewController {
             logintableVc.loginDelegate = self
             
         } else {
-            print(">>>>>>>>>>>>>>>>>>>>>e> user login \(UserManager.shared.getToken()!)")
+            
+            print(">>>>>>>>>>>>>>>>>>>>>> user login \(UserManager.shared.getToken()!)")
             
         }
     }
@@ -211,10 +208,10 @@ extension DashboardViewController: UICollectionViewDelegate,UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-      
+        
         //        print("cell width ====>: \(width)")
         var width:CGFloat = (collectionView.frame.width - 15) / 2
-       
+        
         if isGridListActive {
             width = collectionView.frame.width
         } else {
@@ -255,118 +252,26 @@ extension DashboardViewController:LoginSuccessDelegate {
 }
 
 
-extension DashboardViewController: SideDrawerViewControllerDelegate {
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "drawerSegue"){
-            if let controller = segue.destination as? SideDrawerViewController {
-                self.sideDrawerViewController = controller
-                self.sideDrawerViewController?.delegate = self
-                
-            }
+extension DashboardViewController: MenuDrawerViewControllerDelegate{
+    func presentNewController(drawerItemType: DrawerItemType) {
+        if drawerItemType != .notes {
+            presentDrawerControllers(type: drawerItemType)
+        }
+        
+        if drawerItemType == .notes {
+            print("==============>only dismiss")
         }
     }
+    
     
     @IBAction func openSideMenue(_ sender: UIButton) {
-       
-        UIView.animate(withDuration: 0.1) {
-            self.leadingConstraintForDrawerView.constant = 10
-            self.view.layoutIfNeeded()
-            
-        } completion: { (status) in
-            self.backViewForDrawer.isHidden = false
-            self.backViewForDrawer.alpha = 0.75
-            UIView.animate(withDuration: 0.1) {
-                self.leadingConstraintForDrawerView.constant = 0
-                self.view.layoutIfNeeded()
-            } completion: { (status) in
-                self.isSideDrawerMenuShown = true
-            }
-
-        }
-    }
-    
-    func hideSideDrawer() {
-        print("=================>side Drawer called")
-        self.hideSideDrawerMenue()
-    }
-    
-    private func hideSideDrawerMenue() {
         
-        UIView.animate(withDuration: 0.1) {
-            
-            self.leadingConstraintForDrawerView.constant = 10
-            self.view.layoutIfNeeded()
-        } completion: { (status) in
-            UIView.animate(withDuration: 0.1) {
-                self.backViewForDrawer.alpha = 0.0
-                self.leadingConstraintForDrawerView.constant = -310
-                self.view.layoutIfNeeded()
-            } completion: { (status) in
-                self.backViewForDrawer.isHidden = true
-                self.isSideDrawerMenuShown = false
-            }
-        }
-    }
-    
-    //Side drawer movment code
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (isSideDrawerMenuShown) {
-            if let touch = touches.first {
-                let location = touch.location(in: backViewForDrawer)
-                print("start at \(location.x)")
-                beginPoint = location.x
-            }
-        }
-    }
-   
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if(isSideDrawerMenuShown){
-            if let touch = touches.first {
-                let location = touch.location(in: backViewForDrawer)
-                let differenceFromBeginPoint  =  beginPoint - location.x
-                if (differenceFromBeginPoint>0 || differenceFromBeginPoint < -310){
-                    self.leadingConstraintForDrawerView.constant = -differenceFromBeginPoint
-                    difference = differenceFromBeginPoint
-                    self.backViewForDrawer.alpha = 0.75 - (0.75*differenceFromBeginPoint/310 )
-                    print("moved at \(differenceFromBeginPoint)====>\(beginPoint)====>\(location.x)")
-                     
-                }
-            }
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (isSideDrawerMenuShown ) {
-            if let touch = touches.first {
-                let location = touch.location(in: backViewForDrawer)
-                
-                if(difference > 155){
-                    //close the side drawer
-                    UIView.animate(withDuration: 0.5) {
-                        self.leadingConstraintForDrawerView.constant = -310  //-320
-                    } completion: { (status) in
-                        self.backViewForDrawer.alpha = 0.0
-                        self.isSideDrawerMenuShown = false
-                        self.backViewForDrawer.isHidden = true
-                    }
-                }else{
-                    //openside drawer
-                    UIView.animate(withDuration: 0.5) {
-                        self.leadingConstraintForDrawerView.constant = 0   //-10
-                    } completion: { (status) in
-                        self.backViewForDrawer.alpha = 0.75
-                        self.isSideDrawerMenuShown = true
-                        self.backViewForDrawer.isHidden = false
-                        
-                    }
-
-                    
-                }
-                print("end  at \(location.x)")
-            }
-        }
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "MenuDrawerViewController") as! MenuDrawerViewController
+        VC.presentNewScreenDelegate = self
+        VC.modalPresentationStyle = .overCurrentContext
+        self.present(VC, animated: false)
+        //        presentDetailHorizontal(VC)
+        
     }
     
 }

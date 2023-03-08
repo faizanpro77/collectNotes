@@ -4,31 +4,39 @@
 //
 //  Created by MD Faizan on 16/12/22.
 //
-/**shaibaz mobile screen shots
-1)how keyboard close of create screen
- 
- *don*
- 1)empty note create errore box
- 2)colour pallet
- 3)keyboar with buttom bar
- 
- */
+
 /**
  //  faizyshaikh204@gmail.com
  //  password7
  
-question
-how i know i am clicking perticulat text view
- 
 
+ ======================================================
+ ======================================================
+ 
+ ***common think for all project
+  icon size for collect notes  width=30  height=20
+ 
+ ======================================================
+ ======================================================
+ 
  today task
 
  
- 5)drawer ui
- 2)archive
+ 3)drawer for all 3 screen (reusable)
+ *)clean dashbord merge with new drawer
+ *)add table view method with section
+ *)
+ 
+ 
+ -----------
+ 2)archive(collection view)(reusable)
  3)trash
  4)pin
+ 
+ colour palet
+ 
  6)label
+ 
  10)reminder,push notification,local notification
  
  7)dynamic cell note
@@ -36,14 +44,18 @@ how i know i am clicking perticulat text view
  9)saperate firbase loginservices quries
  12)store user id in local ns user and every time check from nsuser default
  13)password security hide
- 14)dashboard scroll with top bar
+ 15)modal presentation style left right buttom
  
  14) local storage seperate project or same project
  
  **pending**
- 1)text view placeholder note work like after entering go to next textview field and after entering not go to next line...textview place after enrter gonin to next text view after press enter not working
+ 1)text view placeholder note work like after entering go to next textview field and after entering not go to next line...textview place after enrter go in to next text view after press enter not working
  2)text view show only some after scrolling it left some text after entering character it show full text after scrolling
  3)after creating empty note go to deshboard and show notification notification (demo)
+ 4)after touching drawer close and open and move inside
+ 5) dashboard scroll with top bar and archive screen
+ 6)touchesBegan touchesMoved touchesEnded this method not work with table view ios swift
+ https://www.youtube.com/watch?v=H_eaZ2zu-gs
  
  
  **die list**
@@ -70,6 +82,7 @@ how i know i am clicking perticulat text view
  20)bottom sheet
  21)grid and list
  22)if user update or edite then only firebase query run
+ 5)drawer ui and functionality
  */
 
 

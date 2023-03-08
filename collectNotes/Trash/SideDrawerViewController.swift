@@ -24,14 +24,16 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var drawerTopBarVeiw: UIView!
     
     
+   
+    
+    
     //    var tableViewMenueArray = ["Notes","Reminders","Create/Edit labels","Archive","Bin","Setting","Send app feedback","Help"]
     
     
     //    var tableViewImageArray = ["lightbulb","bell","pencil","archivebox","trash","gearshape","message", "questionmark.circle"]
-    
-    var tableViewSectionTitle = ["","LABELS","",""]
     //    var tableViewSectionTitle = ["LABELS","LABELS","LABELS","LABELS"]
     
+    var tableViewSectionTitle = ["","LABELS","",""]
     
     var tableViewMenueArray = [["Notes","Reminders"],["add label","Create/Edit labels"],["Archive","Bin"],["Setting","Send app feedback","Help"]]
     
@@ -40,7 +42,10 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
     var delegate:SideDrawerViewControllerDelegate?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
         //for topbar buttom shadow
         drawerTopBarVeiw.layer.masksToBounds = false
         drawerTopBarVeiw.layer.shadowRadius = 4
@@ -51,7 +56,7 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
                                                                       y: drawerTopBarVeiw.bounds.maxY - drawerTopBarVeiw.layer.shadowRadius,
                                                                       width: drawerTopBarVeiw.bounds.width,
                                                                       height: 0.7 )).cgPath
-        //for tipbar buttom border
+        //for topbar buttom border
         let bottomBorder = CALayer()
         bottomBorder.frame = CGRect(x: 0.0, y: drawerTopBarVeiw.frame.size.height-1, width: drawerTopBarVeiw.frame.width, height: 1.0)
         bottomBorder.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -83,8 +88,6 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        
-        
         if section == 1{
             return 20
         }else{
@@ -103,6 +106,8 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
         print("section===============>\(section)")
         return tableViewSectionTitle[section]
     }
+    
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -172,6 +177,7 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
 //    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive event: UIEvent) -> Bool {
 //        return true
 //    }
+    
 }
 
 

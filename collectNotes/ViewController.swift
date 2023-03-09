@@ -28,7 +28,9 @@
  *)
  
  
- -----------
+ -------------------------------------
+ 1)clean menue drawer
+ 2)selection menue after dismiss controller
  2)archive(collection view)(reusable)
  3)trash
  4)pin

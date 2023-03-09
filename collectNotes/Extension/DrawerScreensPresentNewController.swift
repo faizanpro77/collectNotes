@@ -10,7 +10,7 @@ import UIKit
 //var tableViewMenueArray = [["Notes","Reminders"],["add label","Create/Edit labels"],["Archive","Bin"],["Setting","Send app feedback","Help"]]
 
 enum DrawerItemType: Int {
-    case notes = 0 
+    case notes = 0
     case reminders = 1
     case addLabel = 2
     case createEditlabels = 3
@@ -28,52 +28,49 @@ extension UIViewController {
         
         switch type {
         case .notes:
+            
             print("=========>notes")
+            let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+            
+            dashboardVC.modalPresentationStyle = .fullScreen
+            present(dashboardVC, animated: true)
+            
             
         case .reminders:
+            
             print("=========>reminder")
+            let reminderVC = self.storyboard?.instantiateViewController(withIdentifier: "RemindersViewController") as! RemindersViewController
+            
+            reminderVC.modalPresentationStyle = .fullScreen
+            present(reminderVC, animated: true)
             
         case .addLabel:
+            
             print("=========>addLabel")
             
             
         case .createEditlabels:
+            
             print("=========>createEditlabels")
             
         case .archive:
+            
             print("=========>archive")
+            let ArchiveVC  = self.storyboard?.instantiateViewController(withIdentifier: "ArchiveViewController") as! ArchiveViewController
+            
+            ArchiveVC.modalPresentationStyle = .fullScreen
+            present(ArchiveVC, animated: true)
             
         case .bin:
+            
             print("=========>bin")
+            let TrashVC  = self.storyboard?.instantiateViewController(withIdentifier: "TrashViewController") as! TrashViewController
+            
+            TrashVC.modalPresentationStyle = .fullScreen
+            present(TrashVC, animated: true)
+            
             
         }
-        
-        //        if  tableIndexNumber == 0 {
-        //            print("navigate to dashboard")
-        //
-        //        } else if tableIndexNumber == 1 {
-        //
-        //            let reminderVC = self.storyboard?.instantiateViewController(withIdentifier: "RemindersViewController") as! RemindersViewController
-        //
-        //
-        //            reminderVC.modalPresentationStyle = .fullScreen
-        //            present(reminderVC, animated: true)
-        //        } else if tableIndexNumber == 2 {
-        //
-        //            let TrashVC  = self.storyboard?.instantiateViewController(withIdentifier: "ArchiveViewController") as! ArchiveViewController
-        //
-        //            TrashVC.modalPresentationStyle = .fullScreen
-        //            present(TrashVC, animated: true)
-        //
-        //        }
-        //        else if tableIndexNumber == 3 {
-        //
-        //            let TrashVC  = self.storyboard?.instantiateViewController(withIdentifier: "TrashViewController") as! TrashViewController
-        //
-        //            TrashVC.modalPresentationStyle = .fullScreen
-        //            present(TrashVC, animated: true)
-        //
-        //        }
         
     }
     

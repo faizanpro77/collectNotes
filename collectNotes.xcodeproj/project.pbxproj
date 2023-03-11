@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F1BB7CFC00AE022C70C3B6A /* Pods_collectNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6650C1DA7457B6DEC6BC79FE /* Pods_collectNotes.framework */; };
+		2B10936D29BC66E2001160C4 /* CommonCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B10936C29BC66E2001160C4 /* CommonCollectionView.xib */; };
+		2B10936F29BC66F5001160C4 /* CommonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B10936E29BC66F5001160C4 /* CommonCollectionView.swift */; };
+		2B10937329BC93CF001160C4 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B10937129BC93CF001160C4 /* CustomCollectionViewCell.swift */; };
+		2B10937429BC93CF001160C4 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B10937229BC93CF001160C4 /* CustomCollectionViewCell.xib */; };
 		2B213392297AAC9700A05B01 /* FirebaseNoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */; };
 		2B2A64CE29A3C065004C3CB6 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */; };
 		2B44E0AE299163F2001FBD90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B44E0AD299163F2001FBD90 /* AuthService.swift */; };
@@ -50,6 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B10936C29BC66E2001160C4 /* CommonCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCollectionView.xib; sourceTree = "<group>"; };
+		2B10936E29BC66F5001160C4 /* CommonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCollectionView.swift; sourceTree = "<group>"; };
+		2B10937129BC93CF001160C4 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B10937229BC93CF001160C4 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNoteService.swift; sourceTree = "<group>"; };
 		2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		2B44E0AD299163F2001FBD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -117,6 +125,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2B10936B29BC66C6001160C4 /* CommonCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				2B10936C29BC66E2001160C4 /* CommonCollectionView.xib */,
+				2B10936E29BC66F5001160C4 /* CommonCollectionView.swift */,
+			);
+			path = CommonCollectionView;
+			sourceTree = "<group>";
+		};
+		2B10937029BC92E6001160C4 /* ReusableCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B10937129BC93CF001160C4 /* CustomCollectionViewCell.swift */,
+				2B10937229BC93CF001160C4 /* CustomCollectionViewCell.xib */,
+			);
+			path = ReusableCollectionCell;
+			sourceTree = "<group>";
+		};
 		2B65FF54296987250081F14D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */,
+				2B796D59299CF62400F5047E /* TableViewCell.swift */,
 			);
 			path = Trash;
 			sourceTree = "<group>";
@@ -173,6 +200,8 @@
 		2B7F776C294C64BE0023CC35 /* collectNotes */ = {
 			isa = PBXGroup;
 			children = (
+				2B10937029BC92E6001160C4 /* ReusableCollectionCell */,
+				2B10936B29BC66C6001160C4 /* CommonCollectionView */,
 				2B7F776D294C64BE0023CC35 /* AppDelegate.swift */,
 				2B7F776F294C64BE0023CC35 /* SceneDelegate.swift */,
 				2B7F7771294C64BE0023CC35 /* ViewController.swift */,
@@ -214,7 +243,6 @@
 			children = (
 				2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */,
 				2BA5608F2994EE120048C5F5 /* MenueBottomSheetViewController.swift */,
-				2B796D59299CF62400F5047E /* TableViewCell.swift */,
 				2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */,
 				2B6BF70729ADE66E0059BE3C /* DrawerTableViewCell.swift */,
 			);
@@ -311,6 +339,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B10936D29BC66E2001160C4 /* CommonCollectionView.xib in Resources */,
+				2B10937429BC93CF001160C4 /* CustomCollectionViewCell.xib in Resources */,
 				2B7F777D294C64C20023CC35 /* LaunchScreen.storyboard in Resources */,
 				2BFA506F2961886C00EE547F /* GoogleService-Info.plist in Resources */,
 				2B7F777A294C64C20023CC35 /* Assets.xcassets in Resources */,
@@ -372,6 +402,7 @@
 				2BF93410298842B100E133DF /* NoteDetailViewController.swift in Sources */,
 				2B6BF70829ADE66E0059BE3C /* DrawerTableViewCell.swift in Sources */,
 				2BA560902994EE120048C5F5 /* MenueBottomSheetViewController.swift in Sources */,
+				2B10937329BC93CF001160C4 /* CustomCollectionViewCell.swift in Sources */,
 				2BB052AD2956E7740087163B /* SignupTableViewController.swift in Sources */,
 				2B873E3929B5B4AC007700A2 /* RemindersViewController.swift in Sources */,
 				2B7F7778294C64BE0023CC35 /* collectNotes.xcdatamodeld in Sources */,
@@ -396,6 +427,7 @@
 				2B65FF562969973B0081F14D /* Constants.swift in Sources */,
 				2BD7923829A7D33F00A277E8 /* ReusableViewController.swift in Sources */,
 				2B7F7770294C64BE0023CC35 /* SceneDelegate.swift in Sources */,
+				2B10936F29BC66F5001160C4 /* CommonCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

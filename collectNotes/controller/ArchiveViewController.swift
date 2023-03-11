@@ -8,21 +8,30 @@
 import UIKit
 
 class ArchiveViewController: UIViewController {
+    
+    
+    @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
+    
+    
+    
+    
+//    @IBOutlet weak var collectionViewArchive: ReusableCollectionView!
+  
+    
+//    @IBOutlet weak var commonCollectionArchive: UIView!
+    
 
+//    private lazy var commonCollectionView: CommonCollectionView = .loadFromNib()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bar Items"
-//         view.backgroundColor = .systemPink
-
         
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//
-//
-//
-//        }
-
-        // Do any additional setup after loading the view.
+        CommonCollectionBackView.lblTitle.text = "Archive hub"
     }
     
     
@@ -43,24 +52,8 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
     
     func presentNewController(drawerItemType: DrawerItemType) {
         
-        //        print("==============>>protocol work good,\(tableIndexNumber)")
-        //        var tableRow = DrawerItemType(rawValue: tableIndexNumber)
         
         
-        //        var tableRow: tableRowName?
-        
-        //        if tableIndexNumber != 2 {
-        //            if tableIndexNumber == 0 {
-        //                 tableRow = .notes
-        //            } else if tableIndexNumber == 1 {
-        //                tableRow = .reminders
-        //            } else if tableIndexNumber == 3 {
-        //                tableRow = .bin
-        //            }
-        
-        //            presentDrawerControllers(tableIndexNumber: tableIndexNumber)
-        
-        //i check here if selected index row of table view is archive then only dismiss controller and if not then present particular screen
         if drawerItemType != .archive {
             presentDrawerControllers(type: drawerItemType)
         }
@@ -69,6 +62,16 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
             print("==============>only dismiss")
         }
     }
+    
+    
+    
+//    func faizean() {
+//        let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as! NoteDetailViewController
+//        noteDetailController.modalPresentationStyle = .fullScreen
+//        noteDetailController.note = notes[indexPath.item]
+//        noteDetailController.noteType = .update
+//        self.present(noteDetailController, animated: true, completion: nil)
+//    }
 }
 
 
@@ -108,3 +111,62 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
 //            present(TrashVC, animated: true)
 //
 //        }
+
+
+
+
+
+/**
+ view did load code
+  
+ //        commonCollectionArchive.backgroundColor = .red
+        
+         
+ //         view.backgroundColor = .systemPink
+
+         
+         
+ //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+ //
+ //
+ //
+ //        }
+
+         // Do any additional setup after loading the view.
+         
+ //        let norecordView = CommonCollectionView(frame: commonCollectionArchive.bounds)
+ //        let viewFromXib = UINib(nibName: "CommonCollectionView", bundle: .main).instantiate(withOwner: nil, options: nil).first as! CommonCollectionView
+
+ //        let viewFromXib = Bundle.main.loadNibNamed("CommonCollectionView", owner: self, options: nil)![0] as! CommonCollectionView
+ //        commonCollectionView.frame = commonCollectionArchive.bounds
+ //        commonCollectionArchive.addSubview(commonCollectionView)
+ //
+ //        self.commonCollectionArchive.addSubview(norecordView)
+ 
+ 
+ */
+
+
+/**
+ 
+ drawer related code
+ 
+ //        print("==============>>protocol work good,\(tableIndexNumber)")
+ //        var tableRow = DrawerItemType(rawValue: tableIndexNumber)
+ 
+ 
+ //        var tableRow: tableRowName?
+ 
+ //        if tableIndexNumber != 2 {
+ //            if tableIndexNumber == 0 {
+ //                 tableRow = .notes
+ //            } else if tableIndexNumber == 1 {
+ //                tableRow = .reminders
+ //            } else if tableIndexNumber == 3 {
+ //                tableRow = .bin
+ //            }
+ 
+ //            presentDrawerControllers(tableIndexNumber: tableIndexNumber)
+ 
+ //i check here if selected index row of table view is archive then only dismiss controller and if not then present particular screen
+ */

@@ -8,8 +8,13 @@
 import UIKit
 
 class ReusableCollectionView: UICollectionView {
+    
+    
+    
+//        var notes:[String] = ["Bedsheets&Bedsheets&","BedsheetsklgfjBedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&sjflsgk","good boy","hero panti","Furniture","kitchen","plane","bike","good","boy"]
+    
 
-    var notes:[Note] = []
+//    var notes:[Note] = []
     override func numberOfItems(inSection section: Int) -> Int {
         return 5
     }
@@ -18,5 +23,9 @@ class ReusableCollectionView: UICollectionView {
         return UICollectionViewCell()
         
     }
-
+   
+    
+    
+    
+    
 }

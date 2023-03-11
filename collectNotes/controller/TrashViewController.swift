@@ -10,10 +10,16 @@ import UIKit
 class TrashViewController: UIViewController {
 
     
+    @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        CommonCollectionBackView.lblTitle.text = "Bin Hub"
+        
+//        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
+        
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .bin)
         // Do any additional setup after loading the view.
     }
     

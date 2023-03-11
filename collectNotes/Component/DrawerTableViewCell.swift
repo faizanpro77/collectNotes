@@ -23,6 +23,15 @@ class DrawerTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+//        setSelection(selected)
+    }
+    
+    func setSelection(_ isSelected: Bool) {
+       
+        contentView.backgroundColor = isSelected ? UIColor.lightGray : UIColor.white
+        tableViewLabel.textColor = isSelected ? UIColor.blue : UIColor.lightGray
+        tableViewImage.tintColor = isSelected ? UIColor.blue : UIColor.lightGray
+        
     }
 
 }

@@ -24,8 +24,12 @@ extension UIViewController {
     
     // this code is reusable code for reminder,archive,trash for persenting particular screen selcted in table view
     //    func presentDrawerControllers(tableIndexNumber:Int,tableIndexRowName:tableRowName) {
+    
+    
     func presentDrawerControllers(type: DrawerItemType) {
-        
+//        let commonCollectionView = CommonCollectionView()
+//        commonCollectionView.showParticularNotesCollectionData(type: type)
+    
         switch type {
         case .notes:
             
@@ -57,7 +61,6 @@ extension UIViewController {
             
             print("=========>archive")
             let ArchiveVC  = self.storyboard?.instantiateViewController(withIdentifier: "ArchiveViewController") as! ArchiveViewController
-            
             ArchiveVC.modalPresentationStyle = .fullScreen
             present(ArchiveVC, animated: true)
             

@@ -22,15 +22,16 @@
  today task
 
  
- 3)drawer for all 3 screen (reusable)
- *)clean dashbord merge with new drawer
- *)add table view method with section
- *)
- 
+
+ 1)clean menue drawer
+ 2)drawer section index enum by  structure(advance)
  
  -------------------------------------
- 1)clean menue drawer
+ 
+
  2)selection menue after dismiss controller
+ 
+ 1)ui for archive and trash
  2)archive(collection view)(reusable)
  3)trash
  4)pin
@@ -85,6 +86,9 @@
  21)grid and list
  22)if user update or edite then only firebase query run
  5)drawer ui and functionality
+ 3)drawer for all 3 screen (reusable)
+ *)clean dashbord merge with new drawer
+ *)add table view method with section
  */
 
 

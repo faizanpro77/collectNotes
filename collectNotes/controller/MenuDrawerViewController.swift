@@ -57,7 +57,7 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
         tap.delegate = self
         view.addGestureRecognizer(tap)
         
-        //this is the KEY of the fix
+        //this is the KEY of the fix when i click on table view row tap gesture click it resolve that
         tap.cancelsTouchesInView = false
         
         self.addBottomShadow()
@@ -65,6 +65,9 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
         
         
     }
+    
+    
+    
     
     
     //the name suggests the viewWillAppear is called before the view is about to appear and viewDidAppear is called when view did appear.
@@ -140,71 +143,26 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
     
     
     
-//    var tableViewMenueArray = ["Notes","Reminders","Archive","Bin"]
-//    var tableViewImageArray = ["lightbulb","bell","archivebox","trash"]
-//
-//
-    
-    
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return tableViewMenueArray.count
-//    }
-//
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell:DrawerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DrawerTableViewCell
-//
-//        cell.tableViewImage.image = UIImage(systemName: tableViewImageArray[indexPath.row])
-//        cell.tableViewLabel.text = tableViewMenueArray[indexPath.row]
-//        //        cell.clipsToBounds = true
-//        //        cell.layer.cornerRadius = 24
-//        //this is for corner radius of selected cell
-//        //        cell.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner]
-//        return cell
-//    }
-    
-    
-    //after selcting drawer menue navigate to perticular controller
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("indexPath.section=======>\(indexPath.section)")
-//        print("indexPath.row=======>\(indexPath.row)")
-//
-//        //navigate according to index row to particular screen
-//        let drawerItemType = DrawerItemType(rawValue: indexPath.row)!
-//        print("============>>>>>drawerItemType ==\(drawerItemType)")
-//        selectedDrawerItemType = drawerItemType
-//        hideSideDrawer(isPresent: true, drawerItemType: drawerItemType)
-//
-//
-//        /*
-//        if indexPath.row == 0  {
-//
-//            print("indexPath.row=======>\(indexPath.row)")
-//
-//            hideSideDrawer(isPresent: true,tableIndex: 0)
-//
-//        } else if indexPath.row == 1 {
-//
-//            hideSideDrawer(isPresent: true, tableIndex: 1)
-//        } else if indexPath.row == 2 {
-//
-//            hideSideDrawer(isPresent: true,tableIndex: 2)
-//        } else if indexPath.row == 3 {
-//
-//            hideSideDrawer(isPresent: true, tableIndex: 3)
-//        }
-//        */
-//    }
-    
+
     
     //==================================================================================================
     
+    
+//    var selectedIndex = IndexPath(row: -1, section: 0)
 //    after selcting drawer menue navigate to perticular controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         print("indexPath.section=======>\(indexPath.section)")
         print("indexPath.row=======>\(indexPath.row)")
-
+      
+        //=-------------------------
+//        let indexesToRedraw = [indexPath]
+//        print("indexesToRedraw==========hh>\(indexesToRedraw)")
+//
+//        selectedIndex = indexPath
+//        tableView.reloadRows(at: indexesToRedraw, with: .fade)
+        
+        //=-------------------------
         var drawerRowIndex = 0
         if indexPath.section == 0 && indexPath.row == 0 {
             drawerRowIndex = 0
@@ -226,6 +184,28 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
         print("============>>>>>drawerItemType ==\(drawerItemType)")
         selectedDrawerItemType = drawerItemType
         hideSideDrawer(isPresent: true, drawerItemType: drawerItemType)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:DrawerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DrawerTableViewCell
+        
+        cell.tableViewImage.image = UIImage(systemName: tableViewImageArray[indexPath.section][indexPath.row] )
+        cell.tableViewLabel.text = tableViewMenueArray[indexPath.section][indexPath.row]
+        //        cell.clipsToBounds = true
+        cell.layer.cornerRadius = 24
+        //this is for corner radius of selected cell
+        cell.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner]
+        
+        //=-------------------------
+//        let backgroundView = UIView()
+//        backgroundView.backgroundColor = UIColor.yellow
+//        cell.selectedBackgroundView = backgroundView
+
+        
+//        if selectedIndex == indexPath { cell.backgroundColor = UIColor.black }
+        //=-------------------------
+        return cell
     }
     
     
@@ -273,21 +253,6 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewMenueArray[section].count
     }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:DrawerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DrawerTableViewCell
-        
-        cell.tableViewImage.image = UIImage(systemName: tableViewImageArray[indexPath.section][indexPath.row] )
-        cell.tableViewLabel.text = tableViewMenueArray[indexPath.section][indexPath.row]
-        //        cell.clipsToBounds = true
-        cell.layer.cornerRadius = 24
-        //this is for corner radius of selected cell
-        cell.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner]
-        return cell
-    }
-    
-    
     
     
     
@@ -445,3 +410,62 @@ extension MenuDrawerViewController {
 //}
 
 
+//============================================
+
+//    var tableViewMenueArray = ["Notes","Reminders","Archive","Bin"]
+//    var tableViewImageArray = ["lightbulb","bell","archivebox","trash"]
+//
+//
+    
+    
+    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tableViewMenueArray.count
+//    }
+//
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell:DrawerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DrawerTableViewCell
+//
+//        cell.tableViewImage.image = UIImage(systemName: tableViewImageArray[indexPath.row])
+//        cell.tableViewLabel.text = tableViewMenueArray[indexPath.row]
+//        //        cell.clipsToBounds = true
+//        //        cell.layer.cornerRadius = 24
+//        //this is for corner radius of selected cell
+//        //        cell.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner]
+//        return cell
+//    }
+    
+    
+    //after selcting drawer menue navigate to perticular controller
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("indexPath.section=======>\(indexPath.section)")
+//        print("indexPath.row=======>\(indexPath.row)")
+//
+//        //navigate according to index row to particular screen
+//        let drawerItemType = DrawerItemType(rawValue: indexPath.row)!
+//        print("============>>>>>drawerItemType ==\(drawerItemType)")
+//        selectedDrawerItemType = drawerItemType
+//        hideSideDrawer(isPresent: true, drawerItemType: drawerItemType)
+//
+//
+//        /*
+//        if indexPath.row == 0  {
+//
+//            print("indexPath.row=======>\(indexPath.row)")
+//
+//            hideSideDrawer(isPresent: true,tableIndex: 0)
+//
+//        } else if indexPath.row == 1 {
+//
+//            hideSideDrawer(isPresent: true, tableIndex: 1)
+//        } else if indexPath.row == 2 {
+//
+//            hideSideDrawer(isPresent: true,tableIndex: 2)
+//        } else if indexPath.row == 3 {
+//
+//            hideSideDrawer(isPresent: true, tableIndex: 3)
+//        }
+//        */
+//    }
+    

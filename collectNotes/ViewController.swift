@@ -21,24 +21,28 @@
  
  today task
 
+ 2)archive(collection view)(reusable)
+ [firbase array]
+ [after selecting cell navigate with particular data]
+ [grid list]
+ 
+ 3)trash
  
 
- 1)clean menue drawer
- 2)drawer section index enum by  structure(advance)
+**pending**
+ drawer section index enum by array structure(advance)
  
+ **complete**
+ 
+ design cell title description
  -------------------------------------
  
 
- 2)selection menue after dismiss controller
+ 1))selection menue after dismiss controller
+ 2)pin
  
- 1)ui for archive and trash
- 2)archive(collection view)(reusable)
- 3)trash
- 4)pin
- 
- colour palet
- 
- 6)label
+ 3)colour palet
+ 4)label
  
  10)reminder,push notification,local notification
  
@@ -89,6 +93,8 @@
  3)drawer for all 3 screen (reusable)
  *)clean dashbord merge with new drawer
  *)add table view method with section
+ 1)clean menue drawer
+ 1)ui for archive and trash
  */
 
 

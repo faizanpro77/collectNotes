@@ -32,8 +32,19 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var noteScrollView: UIScrollView!
     
     
+ 
+    
+   
+    
+    func showFaizanName(nameData:String) {
+        print("==========>\(nameData)")
+    }
+    
     override func viewDidLoad() {
+    
         super.viewDidLoad()
+        
+       
         titleTextView.delegate = self
         descriptionTextView.delegate = self
         

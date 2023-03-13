@@ -15,7 +15,7 @@ class TrashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        CommonCollectionBackView.lblTitle.text = "Bin Hub"
+//        CommonCollectionBackView.lblTitle.text = "Bin Hub"
         
 //        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
         

@@ -13,28 +13,35 @@ class CommonCollectionView: UIView {
     
     @IBOutlet weak var commonCollection: UICollectionView!
     
+    //protocol type variable for calling function
+//    var showNoteDetailsProtocolDelegate: ShowNoteDetailsDelegate?
+    
+    
     
     @IBOutlet var containerView: UIView!
     
-
-    @IBOutlet weak var lblTitle: UILabel!
+    //it is callback variable for calling archive function
+    var showNotesDetailsViewControllerCallback: ((Note) -> ())?
     
-    /**
-     
-     var notes: [Note] = [Note(title: "Loading", description: "......", id: "1")]
-     
+   
+    
+//    @IBOutlet weak var lblTitle: UILabel!
+
+    var archiveNotes: [Note] = [Note(title: "Loading", description: "......", id: "1",archive: false)]
+
      func getNotes() {
          FirebaseNoteService().toGetNotesData{ (notesData) in
-             self.notes = notesData
-             self.collectionViewDashboard.reloadData()
+             self.archiveNotes = notesData.filter{$0.archive == true}
+             self.commonCollection.reloadData()
          }
      
-     */
+     }
+    
     
     
 //    var notes:[String] = ["Bedsheets","dsheets&Bedsheets","good boy","hero panti","Furniture","kitchen","plane","bike","good","boy","Bedsheets","dsheets&Bedsheets","good boy","hero panti","Furniture","kitchen","plane","bike","good"]
     
-    var notes:[String] = ["loading.."]
+//    var notes:[String] = ["loading.."]
     
     
     func showParticularNotesCollectionData (type:DrawerItemType) {
@@ -42,10 +49,11 @@ class CommonCollectionView: UIView {
         switch type {
         case .archive:
             print("commonCollection==============>>archive")
-             notes = ["archive","archive","archive","archive","archive","archive","archive","archive","archive","archive","archive","archive"]
+            getNotes()
+//             notes = ["archive","archive","archive","archive","archive","archive","archive","archive","archive","archive","archive","archive"]
         case .bin:
             print("commonCollection==============>>bin")
-             notes = ["Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin"]
+//             notes = ["Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin","Bin"]
         default:
             break
         }
@@ -79,7 +87,7 @@ class CommonCollectionView: UIView {
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        containerView.backgroundColor = .red
+//        containerView.backgroundColor = .red
         initCollectionView()
         
     }
@@ -90,6 +98,13 @@ class CommonCollectionView: UIView {
         commonCollection.register(nib, forCellWithReuseIdentifier: "CustomCell")
         commonCollection.dataSource = self
         commonCollection.delegate = self
+        
+        //it is use for collection view bottom and top space
+        commonCollection.contentInset.top = 10
+        commonCollection.contentInset.bottom = 10
+        
+        commonCollection.contentInset.left = 10
+        commonCollection.contentInset.right = 10
     }
     
 }
@@ -97,12 +112,12 @@ class CommonCollectionView: UIView {
 
 extension CommonCollectionView: UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        1
-//    }
-//
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return notes.count
+        return archiveNotes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -110,15 +125,43 @@ extension CommonCollectionView: UICollectionViewDataSource,UICollectionViewDeleg
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as? CustomCollectionViewCell else {
             fatalError("can't dequeue Custom Cell")
         }
-        cell.noteTitle.text =  notes[indexPath.row]//"\(indexPath.row)"
+//        cell.noteTitle.text =  notes[indexPath.row]
+//        cell.noteDescription.text = notes[indexPath.row]
+        let note = archiveNotes[indexPath.row]
+        cell.noteTitle.text =  note.title
+        cell.noteDescription.text = note.description
+        
+//         cell.configureCell(note: notes[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print("good")
-        let width:CGFloat = (collectionView.frame.width - 15) / 2
+//        let width:CGFloat = (collectionView.frame.width - 15) / 2
         
+        let width:CGFloat = (collectionView.frame.width - 35) / 2
+         
         return CGSize(width: width, height: 200)
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("goood")
+        var noteData:Note
+        noteData = archiveNotes[indexPath.item]
+        
+        //by using callback function
+//        showNotesDetailsViewControllerCallback?(noteData)
+        
+        showNotesDetailsViewControllerCallback?((noteData))
+       
+        //by using protocol we call Archive controller function here
+//        showNoteDetailsProtocolDelegate?.showNoteDetailVC(note: noteData)
+        
+        
+        
     }
 }
 

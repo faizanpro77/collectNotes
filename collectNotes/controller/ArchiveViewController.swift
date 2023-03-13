@@ -6,45 +6,57 @@
 //
 
 import UIKit
+//protocol ShowNoteDetailsDelegate {
+//    func showNoteDetailVC(note: Note)
+//}
+
+
 
 class ArchiveViewController: UIViewController {
     
     
     @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
-    
-    
-    
-    
-//    @IBOutlet weak var collectionViewArchive: ReusableCollectionView!
-  
-    
-//    @IBOutlet weak var commonCollectionArchive: UIView!
-    
 
-//    private lazy var commonCollectionView: CommonCollectionView = .loadFromNib()
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bar Items"
         
         CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
         
-        CommonCollectionBackView.lblTitle.text = "Archive hub"
+//        CommonCollectionBackView.lblTitle.text = "Archive hub"
+        
+        
+        
+        CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
+
+            self.showNoteDetailsViewcontroller(note: notItem)
+
+        }
+        
+//        CommonCollectionBackView.showNoteDetailsProtocolDelegate = self
+        
     }
     
     
+
+
+
+    
     @IBAction func openDrawer(_ sender: UIButton) {
     
+//        checkPresentScreen()
+        
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "MenuDrawerViewController") as! MenuDrawerViewController
         VC.presentNewScreenDelegate = self
         VC.modalPresentationStyle = .overCurrentContext
         self.present(VC, animated: false)
-//        presentDetailHorizontal(VC)
+
+        //        presentDetailHorizontal(VC)
     
         
     }
+    
+    
     
 }
 
@@ -62,16 +74,37 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
             print("==============>only dismiss")
         }
     }
-    
-    
-    
-//    func faizean() {
-//        let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as! NoteDetailViewController
-//        noteDetailController.modalPresentationStyle = .fullScreen
-//        noteDetailController.note = notes[indexPath.item]
-//        noteDetailController.noteType = .update
-//        self.present(noteDetailController, animated: true, completion: nil)
+
+}
+
+
+//extension ArchiveViewController: ShowNoteDetailsDelegate {
+//    func showNoteDetailVC(note: Note) {
+//        showNoteDetailsViewcontroller(note: note)
 //    }
+//}
+    
+    
+
+
+
+extension UIViewController {
+    func  showNoteDetailsViewcontroller(note: Note){
+      
+        print("==========================>>>archiveNoteData===\(note)")
+        
+        guard  let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as? NoteDetailViewController else {
+            return
+        }
+        
+        
+        noteDetailController.modalPresentationStyle = .fullScreen
+        noteDetailController.note = note
+        noteDetailController.noteType = .update
+        present(noteDetailController, animated: true, completion: nil)
+        
+      
+    }
 }
 
 
@@ -93,62 +126,10 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
 //}
 
 
-//        if tableIndexNumber == 0 {
-//            print("navigate to dashboard")
-//
-//        } else if tableIndexNumber == 1 {
-//
-//            let reminderVC = self.storyboard?.instantiateViewController(withIdentifier: "RemindersViewController") as! RemindersViewController
-//
-//
-//            reminderVC.modalPresentationStyle = .fullScreen
-//            present(reminderVC, animated: true)
-//        } else if tableIndexNumber == 3 {
-//
-//            let TrashVC  = self.storyboard?.instantiateViewController(withIdentifier: "TrashViewController") as! TrashViewController
-//
-//            TrashVC.modalPresentationStyle = .fullScreen
-//            present(TrashVC, animated: true)
-//
-//        }
-
-
 
 
 
 /**
- view did load code
-  
- //        commonCollectionArchive.backgroundColor = .red
-        
-         
- //         view.backgroundColor = .systemPink
-
-         
-         
- //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
- //
- //
- //
- //        }
-
-         // Do any additional setup after loading the view.
-         
- //        let norecordView = CommonCollectionView(frame: commonCollectionArchive.bounds)
- //        let viewFromXib = UINib(nibName: "CommonCollectionView", bundle: .main).instantiate(withOwner: nil, options: nil).first as! CommonCollectionView
-
- //        let viewFromXib = Bundle.main.loadNibNamed("CommonCollectionView", owner: self, options: nil)![0] as! CommonCollectionView
- //        commonCollectionView.frame = commonCollectionArchive.bounds
- //        commonCollectionArchive.addSubview(commonCollectionView)
- //
- //        self.commonCollectionArchive.addSubview(norecordView)
- 
- 
- */
-
-
-/**
- 
  drawer related code
  
  //        print("==============>>protocol work good,\(tableIndexNumber)")
@@ -170,3 +151,5 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
  
  //i check here if selected index row of table view is archive then only dismiss controller and if not then present particular screen
  */
+
+

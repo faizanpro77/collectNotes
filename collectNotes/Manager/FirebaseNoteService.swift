@@ -28,7 +28,7 @@ class FirebaseNoteService {
         
         print("document Id ======> \(document.documentID)")
         
-        document.setData(["title": title, "description": description, "trash": false]) { error in
+        document.setData(["title": title, "description": description, "trash": false, "archive":false]) { error in
             if error != nil {
                 print("error in saving data")
                 completion(false, error?.localizedDescription)
@@ -41,6 +41,7 @@ class FirebaseNoteService {
     }
     
     //to get note data
+    //here i am adding doucument id manually  to  data which is recieve
     func toGetNotesData(completion: @escaping ([Note])->()) {
         
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -64,7 +65,8 @@ class FirebaseNoteService {
                     let note = Note(
                         title: documentData["title"] as! String,
                         description: documentData["description"] as! String,
-                        id: documentData["id"] as! String
+                        id: documentData["id"] as! String,
+                        archive: documentData["archive"] as! Bool
                     )
                     
                     notesArray.append(note)

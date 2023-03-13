@@ -12,6 +12,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var noteTitle: UILabel!
     
     
+    @IBOutlet weak var noteDescription: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +28,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 1
         
     }
+    
+//
+//    func configureCell(note: Note) {
+//        labelTitle.text = note.title
+//        labelDescription.text = note.description
+//    }
 
 }

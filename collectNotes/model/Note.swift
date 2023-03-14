@@ -13,6 +13,7 @@ struct Note:Codable {
     var title: String
     var description: String
     var id: String
+    var trash: Bool
     var archive: Bool
     
 //    var dictionary: [String: Any] {

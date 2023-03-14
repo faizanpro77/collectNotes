@@ -1271,9 +1271,12 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" image="rectangle.grid.1x2" catalog="system"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="rectangle.grid.1x2" catalog="system">
+                                                    <backgroundConfiguration key="background"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="toggleGridList:" destination="MGT-4y-JM6" eventType="touchUpInside" id="dfq-Ze-Ysq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1295,7 +1298,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDl-OB-cw9" customClass="CommonCollectionView" customModule="collectNotes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -1308,11 +1311,12 @@
                             <constraint firstItem="uMV-CQ-GEV" firstAttribute="top" secondItem="Bi1-6C-fZ2" secondAttribute="top" id="gST-Pb-d64"/>
                             <constraint firstItem="bDl-OB-cw9" firstAttribute="top" secondItem="uMV-CQ-GEV" secondAttribute="bottom" id="hsG-ce-pba"/>
                             <constraint firstItem="bDl-OB-cw9" firstAttribute="leading" secondItem="7Cx-VG-iYl" secondAttribute="leading" id="ija-yP-UIM"/>
-                            <constraint firstItem="7Cx-VG-iYl" firstAttribute="bottom" secondItem="bDl-OB-cw9" secondAttribute="bottom" id="zq3-lP-9yG"/>
+                            <constraint firstAttribute="bottom" secondItem="bDl-OB-cw9" secondAttribute="bottom" id="zq3-lP-9yG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="CommonCollectionBackView" destination="bDl-OB-cw9" id="mCS-vg-jWd"/>
+                        <outlet property="gridListButton" destination="vdC-Fv-jD8" id="GOa-TW-zqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7H-ja-QJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1370,9 +1374,12 @@
                                                         </constraints>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain">
-                                                            <backgroundConfiguration key="background" image="rectangle.grid.1x2" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="rectangle.grid.1x2" catalog="system">
+                                                            <backgroundConfiguration key="background"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="toggleGridList:" destination="FVj-wL-euh" eventType="touchUpInside" id="YAx-SM-0FH"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1398,7 +1405,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qat-nf-yNh" customClass="CommonCollectionView" customModule="collectNotes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -1406,7 +1413,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iBz-ip-BY7" firstAttribute="leading" secondItem="Evy-Oy-Vj0" secondAttribute="leading" id="2Vs-hA-Gwr"/>
-                            <constraint firstItem="ikr-le-qqz" firstAttribute="bottom" secondItem="Qat-nf-yNh" secondAttribute="bottom" id="JA5-pA-Nxj"/>
+                            <constraint firstAttribute="bottom" secondItem="Qat-nf-yNh" secondAttribute="bottom" id="JA5-pA-Nxj"/>
                             <constraint firstAttribute="trailing" secondItem="iBz-ip-BY7" secondAttribute="trailing" id="Qbi-yi-80K"/>
                             <constraint firstItem="ikr-le-qqz" firstAttribute="trailing" secondItem="Qat-nf-yNh" secondAttribute="trailing" id="dhK-PL-rnF"/>
                             <constraint firstItem="iBz-ip-BY7" firstAttribute="top" secondItem="Evy-Oy-Vj0" secondAttribute="top" id="kCl-je-qy7"/>
@@ -1417,6 +1424,7 @@
                     <navigationItem key="navigationItem" id="bhp-Vl-3Oj"/>
                     <connections>
                         <outlet property="CommonCollectionBackView" destination="Qat-nf-yNh" id="WHx-r8-mbS"/>
+                        <outlet property="gridListButton" destination="8Vx-Tg-bQI" id="1LY-ax-rAq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYf-cr-xBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

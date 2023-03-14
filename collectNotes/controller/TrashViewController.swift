@@ -12,17 +12,23 @@ class TrashViewController: UIViewController {
     
     @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
     
+    
+    @IBOutlet weak var gridListButton: UIButton!
+    
+    
+    var isGridListActive:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        CommonCollectionBackView.lblTitle.text = "Bin Hub"
         
-//        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
-        
+        //calling this function CommonCollection view for getting particular screen note data for collection view
         CommonCollectionBackView.showParticularNotesCollectionData(type: .bin)
         // Do any additional setup after loading the view.
     }
     
+
     
     @IBAction func openSideDrawer(_ sender: UIButton) {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "MenuDrawerViewController") as! MenuDrawerViewController
@@ -30,7 +36,19 @@ class TrashViewController: UIViewController {
         VC.modalPresentationStyle = .overCurrentContext
         self.present(VC, animated: false)
         
-    }    
+    }
+    
+    
+    @IBAction func toggleGridList(_ sender: UIButton) {
+        
+        isGridListActive.toggle()
+        //using ternary operator intead of if else
+        let image = isGridListActive ? UIImage(systemName: "square.grid.2x2") : UIImage(systemName: "rectangle.grid.1x2")
+        gridListButton.configuration?.image = image
+        CommonCollectionBackView.changeGridList(gridList: isGridListActive)
+        
+    }
+    
 }
 
 

@@ -82,7 +82,7 @@ class DashboardViewController: UIViewController {
     
     
     
-    var notes: [Note] = [Note(title: "Loading", description: "......", id: "1", archive: false)]
+    var notes: [Note] = [Note(title: "Loading", description: "......", id: "1",trash: false, archive: false)]
     
     func getNotes() {
         FirebaseNoteService().toGetNotesData{ (notesData) in

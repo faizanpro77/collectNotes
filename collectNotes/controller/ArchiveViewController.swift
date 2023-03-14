@@ -16,45 +16,71 @@ class ArchiveViewController: UIViewController {
     
     
     @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
-
+    @IBOutlet weak var gridListButton: UIButton!
+    
+    var isGridListActive:Bool = false
+    
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bar Items"
         
         CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
         
-//        CommonCollectionBackView.lblTitle.text = "Archive hub"
+        //        CommonCollectionBackView.lblTitle.text = "Archive hub"
         
         
         
         CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
-
+            
             self.showNoteDetailsViewcontroller(note: notItem)
-
+            
         }
         
-//        CommonCollectionBackView.showNoteDetailsProtocolDelegate = self
+        //        CommonCollectionBackView.showNoteDetailsProtocolDelegate = self
         
     }
     
     
-
-
-
+    
+    
+    
     
     @IBAction func openDrawer(_ sender: UIButton) {
-    
-//        checkPresentScreen()
+        
+        //        checkPresentScreen()
         
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "MenuDrawerViewController") as! MenuDrawerViewController
         VC.presentNewScreenDelegate = self
         VC.modalPresentationStyle = .overCurrentContext
         self.present(VC, animated: false)
-
+        
         //        presentDetailHorizontal(VC)
-    
+        
         
     }
+    
+    
+    
+    //to grid and list collection view
+    @IBAction func toggleGridList(_ sender: UIButton) {
+        
+        isGridListActive.toggle()
+        
+        //using ternary operator intead of if else
+        let image = isGridListActive ? UIImage(systemName: "square.grid.2x2") : UIImage(systemName: "rectangle.grid.1x2")
+        gridListButton.configuration?.image = image
+        
+        //toggle() change boolean valur of variable true/false
+        CommonCollectionBackView.changeGridList(gridList: isGridListActive)
+        print("==============ttttt>>> \(isGridListActive)")
+        
+        
+        
+    }
+    
     
     
     
@@ -62,6 +88,7 @@ class ArchiveViewController: UIViewController {
 
 extension ArchiveViewController: MenuDrawerViewControllerDelegate {
     
+    //if we select other menue from drawer it navigate particular screen as selection and if we open drawer archive screen and select archive menue or same menue it only dismiss drawer
     func presentNewController(drawerItemType: DrawerItemType) {
         
         
@@ -74,7 +101,7 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
             print("==============>only dismiss")
         }
     }
-
+    
 }
 
 
@@ -83,14 +110,14 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
 //        showNoteDetailsViewcontroller(note: note)
 //    }
 //}
-    
-    
+
+
 
 
 
 extension UIViewController {
     func  showNoteDetailsViewcontroller(note: Note){
-      
+        
         print("==========================>>>archiveNoteData===\(note)")
         
         guard  let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as? NoteDetailViewController else {
@@ -103,7 +130,7 @@ extension UIViewController {
         noteDetailController.noteType = .update
         present(noteDetailController, animated: true, completion: nil)
         
-      
+        
     }
 }
 

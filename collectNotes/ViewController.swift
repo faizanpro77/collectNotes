@@ -24,9 +24,14 @@
  2)archive(collection view)(reusable)
  [firbase array]
  [after selecting cell navigate with particular data]
- [grid list]
- 
  3)trash
+ [grid list] for trash,Archive
+ 
+ 
+ dashboard
+ drawerIconColour change
+ 
+ 
  
 
 **pending**

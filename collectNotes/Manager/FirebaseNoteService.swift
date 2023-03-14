@@ -66,6 +66,7 @@ class FirebaseNoteService {
                         title: documentData["title"] as! String,
                         description: documentData["description"] as! String,
                         id: documentData["id"] as! String,
+                        trash: documentData["trash"] as! Bool,
                         archive: documentData["archive"] as! Bool
                     )
                     

@@ -233,11 +233,11 @@ extension LoginTableViewController{
             
             if !email.validateEmailId(){
                 openAlert(title: "Alert", message: "Email Address not found.", alertStyle: .alert, actionTitles: ["okay"], actionStyles: [.default], actions: [{ _ in
-                    print("okay clicked")
+//                    print("okay clicked")
                 }])
             }else if !password.validatePassword(){
                 openAlert(title: "Alert", message: "Please Enter valid Password", alertStyle: .alert, actionTitles: ["okay"], actionStyles: [.default], actions: [{ _ in
-                    print("okay clicked")
+//                    print("okay clicked")
                 }])
                 
             }else {
@@ -246,7 +246,7 @@ extension LoginTableViewController{
             }
         }else {
             openAlert(title: "Alert", message: "Please add details.", alertStyle: .alert, actionTitles: ["okay"], actionStyles: [.default], actions: [{ _ in
-                print("okay clicked")
+//                print("okay clicked")
             }])
             
         }
@@ -267,7 +267,7 @@ extension LoginTableViewController: LoginButtonDelegate {
     
     //this function called after click to logout  button if we login with facebook
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        print("===============>>Logout")
+//        print("===============>>Logout")
     }
 }
 

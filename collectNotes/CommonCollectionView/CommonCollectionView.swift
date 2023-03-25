@@ -51,13 +51,15 @@ class CommonCollectionView: UIView {
     //    }
     
     
-    func getNotes(isArchive:Bool = false, isTrash:Bool = false) {
+    func getNotes(isArchive:Bool = false, isTrash:Bool = false, isNotes:Bool = false) {
         FirebaseNoteService().toGetNotesData{ (notesData) in
             
             if isArchive == true {
-                self.filterNoteData = notesData.filter{$0.archive == true}
+                self.filterNoteData = notesData.filter{$0.archive == true && $0.trash == false}
             } else if isTrash == true {
-                self.filterNoteData = notesData.filter{$0.trash == true}
+                self.filterNoteData = notesData.filter{$0.trash == true }
+            } else if isNotes == true {
+                self.filterNoteData = notesData.filter{$0.trash == false &&  $0.archive == false  }
             }
             
             self.commonCollection.reloadData()
@@ -106,12 +108,16 @@ class CommonCollectionView: UIView {
             getNotes(isTrash: true)
             //            getBinNotes()
             
+        case .notes:
+            print("commonCollection==============>>bin")
+            getNotes(isNotes: true)
+            
         default:
             break
         }
         
         commonCollection.reloadData()
-        print("=============333=>>\(filterNoteData)")
+//        print("=============333=>>\(filterNoteData)")
     }
     
     override init(frame: CGRect) {
@@ -198,7 +204,7 @@ extension CommonCollectionView: UICollectionViewDataSource,UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("good")
+//        print("good")
         //        let width:CGFloat = (collectionView.frame.width - 15) / 2
         
         var width:CGFloat = (collectionView.frame.width - 35) / 2
@@ -216,13 +222,11 @@ extension CommonCollectionView: UICollectionViewDataSource,UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("goood")
+//        print("goood")
         var noteData:Note
         noteData = filterNoteData[indexPath.item]
         
         //by using callback function
-        //        showNotesDetailsViewControllerCallback?(noteData)
-        
         showNotesDetailsViewControllerCallback?((noteData))
         
         //by using protocol we call Archive controller function here

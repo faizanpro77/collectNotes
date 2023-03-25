@@ -9,7 +9,24 @@
  //  faizyshaikh204@gmail.com
  //  password7
  
-
+ ---------
+ ellipsis
+ menucard
+ ======================================================
+ ======================================================
+ **rule for google keep notes**
+ 
+ The title of the note. Length must be less than 1,000 characters. The body of the note
+ The notes have a character limit of 20,000
+ 
+ //for setting character limit
+ if textView.tag == 1 {
+     //titleTextView
+     return numberOfChars <= 1000
+ } else {
+     
+     return numberOfChars <= 10000
+ }
  ======================================================
  ======================================================
  
@@ -19,37 +36,28 @@
  ======================================================
  ======================================================
  
- today task
-
- 2)archive(collection view)(reusable)
- [firbase array]
- [after selecting cell navigate with particular data]
- 3)trash
- [grid list] for trash,Archive
+** today task**
+ 
+ {complete today this project}(12pm)
+ first implemnt front or first diplay feature or implement important less feature
+ 
+ 1)Archive,trash,update from dashboard,restore
+ 2)updat dashboard note screen  like trash screen
+ 3)search
+ 4)colour palet---- buttom sheet
+ 5)profile logout
+ 
+ delete permenant
+ notification(only see video)
  
  
- dashboard
- drawerIconColour change
- 
- 
- 
-
-**pending**
- drawer section index enum by array structure(advance)
- 
- **complete**
- 
- design cell title description
- -------------------------------------
- 
-
- 1))selection menue after dismiss controller
+---------------
  2)pin
- 
- 3)colour palet
+ --------------
+ 11)long presss dashboard
  4)label
- 
  10)reminder,push notification,local notification
+ ------------------------------------------
  
  7)dynamic cell note
  8)seperate protocol file
@@ -59,6 +67,22 @@
  15)modal presentation style left right buttom
  
  14) local storage seperate project or same project
+ 15)all icon size same
+ 
+
+**pending**
+ 1)drawer section index enum by array structure(advance)
+ 2)selection menue after dismiss controller drawer
+ 3)drawer tableview touches method not work i want drag drawer from inside
+ 4)all screen top bar
+ 
+ **complete**
+ 
+ 
+ -------------------------------------
+ 
+
+ 
  
  **pending**
  1)text view placeholder note work like after entering go to next textview field and after entering not go to next line...textview place after enrter go in to next text view after press enter not working
@@ -100,6 +124,17 @@
  *)add table view method with section
  1)clean menue drawer
  1)ui for archive and trash
+ design cell title description
+ 2)archive(collection view)(reusable)
+ [firbase array]
+ [after selecting cell navigate with particular data]
+ 3)trash
+ [grid list] for trash,Archive
+ dashboard Collection view,Grid list
+ drawer Icon Colour change
+ clean dashboard comment
+ drawer animation speed
+ 
  */
 
 

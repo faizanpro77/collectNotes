@@ -37,7 +37,7 @@ class RemindersViewController: UIViewController {
 
 extension RemindersViewController:MenuDrawerViewControllerDelegate{
     func presentNewController(drawerItemType: DrawerItemType) {
-        print("==============>>protocol work good,\(drawerItemType)")
+//        print("==============>>protocol work good,\(drawerItemType)")
         
         //i check here if selected index row of table view is Reminders then only dismiss controller and if not then present particular screen
         if drawerItemType != .reminders {

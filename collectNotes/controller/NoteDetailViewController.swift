@@ -27,24 +27,27 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var bottomTabViewBottomConstraint: NSLayoutConstraint!
     
-   
+    
     @IBOutlet weak var bottomTapView: UIView!
     @IBOutlet weak var noteScrollView: UIScrollView!
     
+    @IBOutlet weak var menueBottomSheetButton: UIButton!
     
- 
     
-   
+    
+    
     
     func showFaizanName(nameData:String) {
         print("==========>\(nameData)")
     }
     
     override func viewDidLoad() {
-    
+        
         super.viewDidLoad()
         
-       
+        // i am rotate three dot icone
+        self.menueBottomSheetButton.transform = self.menueBottomSheetButton.transform.rotated(by: CGFloat(Double.pi / 2))
+        
         titleTextView.delegate = self
         descriptionTextView.delegate = self
         
@@ -55,11 +58,11 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
         
         //noteScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-//        let bottomOffset = CGPoint(x: 0, y: noteScrollView.contentSize.height - noteScrollView.bounds.height + noteScrollView.contentInset.bottom + 150)
-//        noteScrollView.setContentOffset(bottomOffset, animated: true)
-
-
-
+        //        let bottomOffset = CGPoint(x: 0, y: noteScrollView.contentSize.height - noteScrollView.bounds.height + noteScrollView.contentInset.bottom + 150)
+        //        noteScrollView.setContentOffset(bottomOffset, animated: true)
+        
+        
+        
         
         setUpNote()
         
@@ -69,11 +72,11 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
         
         //this code for after showing keyboard bottom tabar move above keyboard not hide behind it
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
-
-  }
-   
+        
+    }
+    
     
     
     //call after updating ui or showing ui
@@ -85,7 +88,7 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
         descriptionTextView.isScrollEnabled = false
     }
     
-
+    
     
     //it called when I want to  update note or read any created note
     private func setUpNote() {
@@ -127,17 +130,19 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
             
             let checkTitleTextEdit = note?.title
             let checkDescriptionTextEdit = note?.description
-          
+            
+            
             note?.title = title
             note?.description = description
             
-            print("===========>checkTextEdit===>\(String(describing: checkTitleTextEdit))===title===>\(title)")
+            //            print("===========>checkTextEdit===>\(String(describing: checkTitleTextEdit))===title===>\(title)")
             
-
+            
             
             //if user edit or update note then only firbase quary run and update note
-            if(checkTitleTextEdit != title || checkDescriptionTextEdit != description){
+            if(checkTitleTextEdit != title || checkDescriptionTextEdit != description ){
                 print("update succesful===========> ")
+                
                 FirebaseNoteService().updateDocument(note: note!) { (status, errorMessage) in
                     
                     if status == true {
@@ -149,7 +154,7 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
                 }
             }else{
                 self.dismiss(animated: true)
-                print("==========>not update or not edit from user")
+                print("==========>only dismiss or note Not edit")
             }
             
             
@@ -163,47 +168,47 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     @objc func keyboardWillShow(sender: NSNotification) {
         
         if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-               let keyboardRectangle = keyboardFrame.cgRectValue
-               let keyboardHeight = keyboardRectangle.height
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
             
             //for animation
-//            UIView.animate(withDuration: 2, delay: 3) {
-//                self.bottomTabViewBottomConstraint.constant = keyboardHeight
-//            }
+            //            UIView.animate(withDuration: 2, delay: 3) {
+            //                self.bottomTabViewBottomConstraint.constant = keyboardHeight
+            //            }
             
             self.bottomTabViewBottomConstraint.constant = keyboardHeight
-
-            //it will manage layout if needed
-//            bottomTapView.layoutIfNeeded()
-//            bottomTapView.setNeedsLayout()
-//            print("================000>keyboard height \(keyboardHeight)")
-           }
-//         self.view.frame.origin.y = -350 // Move view 150 points upward
-    }
-
-    @objc func keyboardWillHide(sender: NSNotification) {
-//         self.view.frame.origin.y = 0 // Move view to original position
-        
-            self.bottomTabViewBottomConstraint.constant = 0
-    }
-   
-    //    Asks the delegate whether to replace the specified text in the text view. and call before updating UI
-        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-            let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-            let numberOfChars = newText.count
             
-            //for setting character limit
-            if textView.tag == 1 {
-                //titleTextView
-                return numberOfChars <= 1000
-            } else {
-                
-                return numberOfChars <= 10000
-            }
-               
+            //it will manage layout if needed
+            //            bottomTapView.layoutIfNeeded()
+            //            bottomTapView.setNeedsLayout()
+            //            print("================000>keyboard height \(keyboardHeight)")
+        }
+        //         self.view.frame.origin.y = -350 // Move view 150 points upward
+    }
+    
+    @objc func keyboardWillHide(sender: NSNotification) {
+        //         self.view.frame.origin.y = 0 // Move view to original position
+        
+        self.bottomTabViewBottomConstraint.constant = 0
+    }
+    
+    //    Asks the delegate whether to replace the specified text in the text view. and call before updating UI
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.count
+        
+        //for setting character limit
+        if textView.tag == 1 {
+            //titleTextView
+            return numberOfChars <= 1000
+        } else {
+            
+            return numberOfChars <= 10000
         }
         
-            
+    }
+    
+    
     //    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
     //        print("=============>shouldChangeTextIn")
     //
@@ -214,26 +219,26 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     //        }
     //        return true
     //    }
-            //if touch screen it hide keyboard
+    //if touch screen it hide keyboard
     //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     //        self.view.endEditing(true)
     //    }
-        
-        
+    
+    
     //    Tells the delegate when the user changes the text or attributes in the specified text view and call after updating UI
+    
+    func textViewDidChange(_ textView: UITextView) {
+        //            print("====================>textViewDidChange")
+        //auto content height of textview
+        textView.isScrollEnabled = true
+        titleTextViewHC.constant = self.titleTextView.contentSize.height
+        descriptionTextViewHC.constant = self.descriptionTextView.contentSize.height
         
-        func textViewDidChange(_ textView: UITextView) {
-            print("====================>textViewDidChange")
-            //auto content height of textview
-            textView.isScrollEnabled = true
-            titleTextViewHC.constant = self.titleTextView.contentSize.height
-            descriptionTextViewHC.constant = self.descriptionTextView.contentSize.height
-            
-            textView.isScrollEnabled = true
-            
-            
-        }
+        textView.isScrollEnabled = true
         
+        
+    }
+    
     
     
     @IBAction func menueBottomSheet(_ sender: Any) {
@@ -245,28 +250,68 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
                 menueSheet.prefersGrabberVisible = true
                 menueSheet.preferredCornerRadius = 24
             }
-             
+            
+            // i call when i click on buttom sheet delete button it callback i call it from menutBottonSheetController
+            menueSheetVC.bottomSheetCallback = {
+                print("menueSheetVC.bottomSheetCallback")
+                self.deleteTheNote()
+                
+            }
+            
+            
+            
             self.present(menueSheetVC, animated: true)
         }
+    }
+    
+    /**
+     
+     FirebaseNoteService().updateDocument(note: note!) { (status, errorMessage) in
+     
+     if status == true {
+     self.dismiss(animated: true)
+     } else {
+     //show error
+     print("Error while updating the note \(errorMessage ?? "null")")
+     }
+     }
+     */
+    
+    
+    func deleteTheNote() {
+        print("deleteTheNoteWithQuery")
+        note?.trash = true
         
+        FirebaseNoteService().updateDocument(note: note!) { (status, errorMassege) in
+            if status ==  true {
+                
+                self.dismiss(animated: true)
+                let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+                self.present(dashboardVC, animated: true)
+                
+            } else {
+                //show error
+                print("Error while updating the note \(errorMassege ?? "null")")
+            }
+        }
     }
     
     
     
     @IBAction func addFeaturebottomSheet(_ sender: UIButton) {
         
-        print("============>OpenBottomSheet")
-
+        //        print("============>OpenBottomSheet")
+        
         if let bottomSheetVc = self.storyboard?.instantiateViewController(withIdentifier: "BottomSheetViewController") as? BottomSheetViewController{
             if let sheet = bottomSheetVc.sheetPresentationController {
                 sheet.detents = [.medium() ]
                 sheet.prefersGrabberVisible = true
-//                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-//                sheet.largestUndimmedDetentIdentifier = .medium
+                //                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                //                sheet.largestUndimmedDetentIdentifier = .medium
                 sheet.preferredCornerRadius = 24
             }
             
-                
+            
             self.present(bottomSheetVc, animated: true)
         }
         
@@ -275,7 +320,7 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     
     
     
-//   ====================================
+    //   ====================================
     
 }
 
@@ -284,14 +329,14 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
  
  //for customization of of botton sheet height
  if let sheet = viewController.sheetPresentationController {
-     sheet.detents = [
-             .custom { _ in
-                 return 200
-             },
-             .custom { context in
-                 return context.maximumDetentValue * 0.6
-             }
-     ]
+ sheet.detents = [
+ .custom { _ in
+ return 200
+ },
+ .custom { context in
+ return context.maximumDetentValue * 0.6
  }
-
+ ]
+ }
+ 
  */

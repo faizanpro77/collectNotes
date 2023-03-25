@@ -14,6 +14,7 @@
 		2B10937429BC93CF001160C4 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B10937229BC93CF001160C4 /* CustomCollectionViewCell.xib */; };
 		2B213392297AAC9700A05B01 /* FirebaseNoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */; };
 		2B2A64CE29A3C065004C3CB6 /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */; };
+		2B400A0429C1955E003714D4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B400A0329C1955E003714D4 /* UIViewController.swift */; };
 		2B44E0AE299163F2001FBD90 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B44E0AD299163F2001FBD90 /* AuthService.swift */; };
 		2B65FF532969871A0081F14D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65FF522969871A0081F14D /* UserManager.swift */; };
 		2B65FF562969973B0081F14D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B65FF552969973B0081F14D /* Constants.swift */; };
@@ -21,6 +22,7 @@
 		2B6BF70629AA505B0059BE3C /* MenuDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6BF70529AA505B0059BE3C /* MenuDrawerViewController.swift */; };
 		2B6BF70829ADE66E0059BE3C /* DrawerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6BF70729ADE66E0059BE3C /* DrawerTableViewCell.swift */; };
 		2B76440729866D31002BB73B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76440629866D31002BB73B /* Note.swift */; };
+		2B76C5CE29C8AEA000176D04 /* TrashNoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76C5CD29C8AEA000176D04 /* TrashNoteDetailViewController.swift */; };
 		2B796D58299AA00A00F5047E /* SideDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */; };
 		2B796D5A299CF62400F5047E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B796D59299CF62400F5047E /* TableViewCell.swift */; };
 		2B7F776E294C64BE0023CC35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F776D294C64BE0023CC35 /* AppDelegate.swift */; };
@@ -60,6 +62,7 @@
 		2B10937229BC93CF001160C4 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B213391297AAC9500A05B01 /* FirebaseNoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseNoteService.swift; sourceTree = "<group>"; };
 		2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
+		2B400A0329C1955E003714D4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2B44E0AD299163F2001FBD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B65FF522969871A0081F14D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2B65FF552969973B0081F14D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		2B6BF70529AA505B0059BE3C /* MenuDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDrawerViewController.swift; sourceTree = "<group>"; };
 		2B6BF70729ADE66E0059BE3C /* DrawerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTableViewCell.swift; sourceTree = "<group>"; };
 		2B76440629866D31002BB73B /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		2B76C5CD29C8AEA000176D04 /* TrashNoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashNoteDetailViewController.swift; sourceTree = "<group>"; };
 		2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideDrawerViewController.swift; sourceTree = "<group>"; };
 		2B796D59299CF62400F5047E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2B7F776A294C64BE0023CC35 /* collectNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = collectNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6ADB7329B71ECD00F1B3C8 /* DrawerScreensPresentNewController.swift */,
+				2B400A0329C1955E003714D4 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -164,6 +169,8 @@
 		2B6ADB9C29B86AA800F1B3C8 /* Trash */ = {
 			isa = PBXGroup;
 			children = (
+				2BD7923729A7D33F00A277E8 /* ReusableViewController.swift */,
+				2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */,
 				2B796D57299AA00A00F5047E /* SideDrawerViewController.swift */,
 				2B796D59299CF62400F5047E /* TableViewCell.swift */,
 			);
@@ -230,10 +237,10 @@
 				2BE883342973EC8E003109CC /* DashboardViewController.swift */,
 				2BF9340F298842B100E133DF /* NoteDetailViewController.swift */,
 				2B2A64CD29A3C065004C3CB6 /* ArchiveViewController.swift */,
-				2BD7923729A7D33F00A277E8 /* ReusableViewController.swift */,
 				2B6BF70529AA505B0059BE3C /* MenuDrawerViewController.swift */,
 				2B873E3829B5B4AC007700A2 /* RemindersViewController.swift */,
 				2B873E3A29B703B4007700A2 /* TrashViewController.swift */,
+				2B76C5CD29C8AEA000176D04 /* TrashNoteDetailViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -243,7 +250,6 @@
 			children = (
 				2BAB085929929EEA00D4FD67 /* BottomSheetViewController.swift */,
 				2BA5608F2994EE120048C5F5 /* MenueBottomSheetViewController.swift */,
-				2BE883322973EBDF003109CC /* NotesCollectionViewCell.swift */,
 				2B6BF70729ADE66E0059BE3C /* DrawerTableViewCell.swift */,
 			);
 			path = Component;
@@ -397,10 +403,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B400A0429C1955E003714D4 /* UIViewController.swift in Sources */,
 				2B7F7786294DD0570023CC35 /* LoginTableViewController.swift in Sources */,
 				2B873E3B29B703B4007700A2 /* TrashViewController.swift in Sources */,
 				2BF93410298842B100E133DF /* NoteDetailViewController.swift in Sources */,
 				2B6BF70829ADE66E0059BE3C /* DrawerTableViewCell.swift in Sources */,
+				2B76C5CE29C8AEA000176D04 /* TrashNoteDetailViewController.swift in Sources */,
 				2BA560902994EE120048C5F5 /* MenueBottomSheetViewController.swift in Sources */,
 				2B10937329BC93CF001160C4 /* CustomCollectionViewCell.swift in Sources */,
 				2BB052AD2956E7740087163B /* SignupTableViewController.swift in Sources */,

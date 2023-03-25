@@ -21,20 +21,20 @@ class ArchiveViewController: UIViewController {
     var isGridListActive:Bool = false
     
     
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bar Items"
         
-        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
         
         //        CommonCollectionBackView.lblTitle.text = "Archive hub"
         
         
-        
+        //callback --- calling showNoteDetailsViewcontroller() from CommonCollection file
         CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
             
+            //            self.showNoteDetailsViewcontroller(note: notItem)
             self.showNoteDetailsViewcontroller(note: notItem)
             
         }
@@ -43,6 +43,12 @@ class ArchiveViewController: UIViewController {
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //calling this function CommonCollection view for getting particular screen note data for collection view
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
+        
+    }
     
     
     
@@ -75,7 +81,7 @@ class ArchiveViewController: UIViewController {
         
         //toggle() change boolean valur of variable true/false
         CommonCollectionBackView.changeGridList(gridList: isGridListActive)
-        print("==============ttttt>>> \(isGridListActive)")
+        //        print("==============ttttt>>> \(isGridListActive)")
         
         
         
@@ -104,7 +110,7 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
     
 }
 
-
+//calling protocol function---- calling showNoteDetailsViewcontroller() from CommonCollection file
 //extension ArchiveViewController: ShowNoteDetailsDelegate {
 //    func showNoteDetailVC(note: Note) {
 //        showNoteDetailsViewcontroller(note: note)
@@ -115,24 +121,6 @@ extension ArchiveViewController: MenuDrawerViewControllerDelegate {
 
 
 
-extension UIViewController {
-    func  showNoteDetailsViewcontroller(note: Note){
-        
-        print("==========================>>>archiveNoteData===\(note)")
-        
-        guard  let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as? NoteDetailViewController else {
-            return
-        }
-        
-        
-        noteDetailController.modalPresentationStyle = .fullScreen
-        noteDetailController.note = note
-        noteDetailController.noteType = .update
-        present(noteDetailController, animated: true, completion: nil)
-        
-        
-    }
-}
 
 
 

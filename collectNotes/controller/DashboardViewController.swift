@@ -32,13 +32,12 @@ protocol LoginSuccessDelegate: AnyObject{
 class DashboardViewController: UIViewController {
     
     
-    
     @IBOutlet weak var ViewTopNavigationBar: UIView!
-    @IBOutlet weak var collectionViewDashboard: UICollectionView!
     @IBOutlet weak var ViewBottomTabBar: UIView!
     @IBOutlet weak var ButtonCreateNewNote: UIButton!
     @IBOutlet weak var gridListButton: UIButton!
     
+    @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
     
     
     //    var checkFirebaseLogin = Auth.auth().currentUser?.uid
@@ -57,48 +56,28 @@ class DashboardViewController: UIViewController {
             
             //hide dashboard controller data or ui
             ViewTopNavigationBar.isHidden = true
-            collectionViewDashboard.isHidden = true
+            CommonCollectionBackView.isHidden = true
             ViewBottomTabBar.isHidden = true
             ButtonCreateNewNote.isHidden = true
         }
         
-        collectionViewDashboard.dataSource = self
-        collectionViewDashboard.delegate = self
         
-        //it is use for collection view bottom and top space
-        collectionViewDashboard.contentInset.top = 20
-        collectionViewDashboard.contentInset.bottom = 20
-        
-        
-        
-        
-    }
-    
-    
-    //    var notes:[String] = ["Bedsheets&Bedsheets&","BedsheetsklgfjBedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&Bedsheets&sjflsgk","good boy","hero panti","Furniture","kitchen","plane","bike","good","boy"]
-    
-    
-    
-    
-    
-    
-    var notes: [Note] = [Note(title: "Loading", description: "......", id: "1",trash: false, archive: false)]
-    
-    func getNotes() {
-        FirebaseNoteService().toGetNotesData{ (notesData) in
-            self.notes = notesData
-            self.collectionViewDashboard.reloadData()
+        CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
+            //            self.showNoteDetailsViewcontroller(note: notItem)
+            self.showNoteDetailsViewcontroller(note: notItem)
             
         }
         
     }
     
     
+    
     //This is called just before the view controller is added to the view hierarchy and shown to the user.
     //You can override this method to perform custom tasks associated with displaying the view.
     
     override func viewWillAppear(_ animated: Bool) {
-        getNotes()
+        //calling this function CommonCollection view for getting particular screen note data for collection view
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .notes)
         
     }
     
@@ -130,9 +109,8 @@ class DashboardViewController: UIViewController {
     
     
     @IBAction func showProfile(_ sender: UIButton) {
+        
         //        print("==========> inside show profile====")
-        
-        
         if UserManager.shared.getToken() != nil {
             let firbaseAuth = Auth.auth()
             do {
@@ -146,6 +124,7 @@ class DashboardViewController: UIViewController {
     }
     
     func gotoLoginScreen() {
+        
         //        print("==========> inside gotoLoginScreen")
         //remove uid from ns user default
         UserManager.shared.logout()
@@ -170,63 +149,15 @@ class DashboardViewController: UIViewController {
     
     //to grid and list collection view
     @IBAction func toggleGridList(_ sender: Any) {
+        
+        isGridListActive.toggle()
+        
         //using ternary operator intead of if else
         let image = isGridListActive ? UIImage(systemName: "square.grid.2x2") : UIImage(systemName: "rectangle.grid.1x2")
         gridListButton.configuration?.image = image
+        
         //toggle() change boolean valur of variable true/false
-        isGridListActive.toggle()
-        collectionViewDashboard.reloadData()
-    }
-}
-
-
-extension DashboardViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return notes.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NotesCollectionViewCell
-        let note = notes[indexPath.row]
-        cell.labelTitle.text = note.title
-        cell.labelDescription.text = note.description
-        
-        //        cell.labelTitle.text = notes[indexPath.row].title
-        //       cell.labelDescription.text = notes[indexPath.row].description
-        
-        //        cell.layer.cornerRadius = 10
-        //        cell.layer.borderWidth = 1
-        //        cell.layer.borderColor = UIColor.blue.cgColor
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
-        //        print("cell width ====>: \(width)")
-        var width:CGFloat = (collectionView.frame.width - 15) / 2
-        
-        if isGridListActive {
-            width = collectionView.frame.width
-        } else {
-            width = (collectionView.frame.width - 15) / 2
-        }
-        
-        return CGSize(width: width, height: 200)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as! NoteDetailViewController
-        noteDetailController.modalPresentationStyle = .fullScreen
-        noteDetailController.note = notes[indexPath.item]
-        noteDetailController.noteType = .update
-        present(noteDetailController, animated: true, completion: nil)
+        CommonCollectionBackView.changeGridList(gridList: isGridListActive)
     }
 }
 
@@ -239,7 +170,7 @@ extension DashboardViewController:LoginSuccessDelegate {
         //        print("===============>\(faizString)")
         
         ViewTopNavigationBar.isHidden = false
-        collectionViewDashboard.isHidden = false
+        CommonCollectionBackView.isHidden = false
         ViewBottomTabBar.isHidden = false
         ButtonCreateNewNote.isHidden = false
         
@@ -275,7 +206,6 @@ extension DashboardViewController: MenuDrawerViewControllerDelegate{
     }
     
 }
-
 
 
 

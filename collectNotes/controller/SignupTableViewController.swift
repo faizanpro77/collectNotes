@@ -33,12 +33,12 @@ class SignupTableViewController: UITableViewController {
     
     @objc
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        print("image tapped")
+//        print("image tapped")
         openGallery()
     }
     
     @IBAction func btnSignupClicked(_ sender: Any) {
-        print("btnSignupClicked")
+//        print("btnSignupClicked")
         let imgSystem = UIImage(systemName: "person.crop.circle.badge.plus")
         if imgProfile.image?.pngData() != imgSystem?.pngData() {
             //profile image selected
@@ -87,8 +87,8 @@ class SignupTableViewController: UITableViewController {
         let email = txtEmail.text!.trimmingCharacters(in: .whitespaces)
         let password = txtPassword.text!.trimmingCharacters(in: .whitespaces)
         
-        print("email======> \(email)")
-        print("password====> \(password)")
+//        print("email======> \(email)")
+//        print("password====> \(password)")
         
         //create user
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
@@ -129,7 +129,7 @@ class SignupTableViewController: UITableViewController {
         
 //        view.window?.rootViewController = ContainerController()
 //        view.window?.makeKeyAndVisible()
-        print("navigate to dashboard")
+//        print("navigate to dashboard")
         let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.StoryBoard.dashboardViewController) as! DashboardViewController
         self.navigationController?.pushViewController(homeViewController, animated: true)
         

@@ -16,7 +16,7 @@ class FirebaseNoteService {
     
     //to add an note
     func toStoreNoteData(title:String, description:String, completion: @escaping (Bool, String?)->()) {
-        print("user UID is ===============> \(String(describing: Auth.auth().currentUser?.uid))")
+//        print("user UID is ===============> \(String(describing: Auth.auth().currentUser?.uid))")
         
         guard let UserId = Auth.auth().currentUser?.uid else {
             return
@@ -26,7 +26,7 @@ class FirebaseNoteService {
         
         let document = db.collection("notesData").document(UserId).collection("notes").document()
         
-        print("document Id ======> \(document.documentID)")
+//        print("document Id ======> \(document.documentID)")
         
         document.setData(["title": title, "description": description, "trash": false, "archive":false]) { error in
             if error != nil {
@@ -90,7 +90,7 @@ class FirebaseNoteService {
         
         let db = Firestore.firestore()
         let document = db.collection("notesData").document(userId).collection("notes")
-        document.document(note.id).setData(["title": note.title, "description": note.description], merge: true) { (error) in
+        document.document(note.id).setData(["title": note.title, "description": note.description, "trash": note.trash], merge: true) { (error) in
             if error != nil {
                 //we have an error
                 completion(false, error?.localizedDescription)

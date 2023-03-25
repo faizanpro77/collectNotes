@@ -8,14 +8,33 @@
 import UIKit
 
 class MenueBottomSheetViewController: UIViewController {
+    
+    var bottomSheetCallback: (() -> ())?
+   
+    
+    
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-   
-
+    @IBAction func deleteNote(_ sender: UIButton) {
+        
+        bottomSheetCallback?()
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        
+       
+    }
 }

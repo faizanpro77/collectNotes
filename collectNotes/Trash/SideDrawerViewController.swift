@@ -103,7 +103,7 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        print("section===============>\(section)")
+//        print("section===============>\(section)")
         return tableViewSectionTitle[section]
     }
     
@@ -149,8 +149,8 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
     
     //after selcting drawer menue navigate to perticular controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("indexPath.section=======>\(indexPath.section)")
-        print("indexPath.row=======>\(indexPath.row)")
+//        print("indexPath.section=======>\(indexPath.section)")
+//        print("indexPath.row=======>\(indexPath.row)")
         
         
         if indexPath.section == 0 && indexPath.row == 0  {
@@ -159,7 +159,7 @@ class SideDrawerViewController: UIViewController,UITableViewDelegate,UITableView
         
         } else if indexPath.section == 2 && indexPath.row == 0 {
             
-            print("indexPath.row=======>\(indexPath.row)")
+//            print("indexPath.row=======>\(indexPath.row)")
             self.delegate?.hideSideDrawer()
             let archiveVC:ArchiveViewController  = self.storyboard?.instantiateViewController(withIdentifier: "ArchiveViewController") as! ArchiveViewController
             //            self.navigationController?.pushViewController(archiveVC, animated: true)

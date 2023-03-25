@@ -8,7 +8,7 @@
 import UIKit
 
 class TrashViewController: UIViewController {
-
+    
     
     @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
     
@@ -20,15 +20,23 @@ class TrashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        CommonCollectionBackView.lblTitle.text = "Bin Hub"
         
-        //calling this function CommonCollection view for getting particular screen note data for collection view
-        CommonCollectionBackView.showParticularNotesCollectionData(type: .bin)
-        // Do any additional setup after loading the view.
+        //        CommonCollectionBackView.lblTitle.text = "Bin Hub"
+        
+        
+        // it is a callback from common collection view after clicking perticular note single note data came here after that i call function that is declare in uiview controlller i navigate to noteDetailsView controller and pass note data as well
+        CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
+            self.showTrashNoteDetailsViewController(note: notItem)
+            
+        }
+        
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        //calling this function CommonCollection view for getting particular screen note data for collection view
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .bin)
+    }
+    
     
     @IBAction func openSideDrawer(_ sender: UIButton) {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "MenuDrawerViewController") as! MenuDrawerViewController
@@ -49,12 +57,41 @@ class TrashViewController: UIViewController {
         
     }
     
+    
+    func showTrashNoteDetailsViewController(note: Note) {
+       
+        let trashNoteViewCotroller = self.storyboard?.instantiateViewController(withIdentifier: "TrashNoteDetailViewController") as! TrashNoteDetailViewController
+        trashNoteViewCotroller.modalPresentationStyle = .fullScreen
+        trashNoteViewCotroller.note = note
+        present(trashNoteViewCotroller, animated: true)
+        
+    }
+    
+    
+//    func  showNoteDetailsViewcontroller(note: Note){
+//
+////        print("==========================>>>archiveNoteData===\(note)")
+//
+//        guard  let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as? NoteDetailViewController else {
+//            return
+//        }
+//
+//
+//        noteDetailController.modalPresentationStyle = .fullScreen
+//        noteDetailController.note = note
+//        noteDetailController.noteType = .update
+//        present(noteDetailController, animated: true, completion: nil)
+//
+//
+//    }
+
+    
 }
 
 
 extension TrashViewController: MenuDrawerViewControllerDelegate {
     func presentNewController(drawerItemType: DrawerItemType) {
-        print("==============>>protocol work good,\(drawerItemType)")
+//        print("==============>>protocol work good,\(drawerItemType)")
         
         //i check here if selected index row of table view is Trash then only dismiss controller and if not then present particular screen
         if drawerItemType != .bin {

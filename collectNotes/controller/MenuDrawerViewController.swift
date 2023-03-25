@@ -80,13 +80,13 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
         
         self.drawerView.transform = CGAffineTransform(translationX: -self.drawerView.frame.width, y: 0)
         
-        
-        UIView.animate(withDuration: 0.25) {
+        //withDuration: 0.25)
+        UIView.animate(withDuration: 0.1) {
             self.drawerView.transform = CGAffineTransform(translationX: 10, y: 0)
         } completion: { (status) in
             self.view.isHidden = false
             self.view.backgroundColor = .black.withAlphaComponent(0.5)
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: 0.1) {
                 self.drawerView.transform = .identity
             } completion: { (status) in
                 self.isSideDrawerMenuShown = true
@@ -108,10 +108,10 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
     
     func hideSideDrawer(isPresent: Bool = false, drawerItemType: DrawerItemType = .notes) {
         
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.1) {
             self.drawerView.transform = CGAffineTransform(translationX: 10, y: 0)
         } completion: { (status) in
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: 0.1) {
                 self.view.backgroundColor = .clear
                 self.drawerView.transform = CGAffineTransform(translationX: -self.drawerView.frame.width, y: 0)
             } completion: { (status) in
@@ -136,7 +136,7 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
     //it asks touches accept or not
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         
-        print("==============>\(touch.view != drawerView)")
+//        print("==============>\(touch.view != drawerView)")
         return touch.view != tableViewMenu   //tableViewMenu  //drawerView
         
     }
@@ -152,8 +152,8 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
 //    after selcting drawer menue navigate to perticular controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("indexPath.section=======>\(indexPath.section)")
-        print("indexPath.row=======>\(indexPath.row)")
+//        print("indexPath.section=======>\(indexPath.section)")
+//        print("indexPath.row=======>\(indexPath.row)")
       
         //=-------------------------
 //        let indexesToRedraw = [indexPath]
@@ -181,7 +181,7 @@ class MenuDrawerViewController: UIViewController, UIGestureRecognizerDelegate,UI
         //navigate according to index row to particular screen
         let drawerItemType = DrawerItemType(rawValue: drawerRowIndex)!
 //        let drawerItemType = DrawerItemType(rawValue: indexPath.row)!
-        print("============>>>>>drawerItemType ==\(drawerItemType)")
+//        print("============>>>>>drawerItemType ==\(drawerItemType)")
         selectedDrawerItemType = drawerItemType
         hideSideDrawer(isPresent: true, drawerItemType: drawerItemType)
     }
@@ -285,7 +285,7 @@ extension MenuDrawerViewController {
         if (isSideDrawerMenuShown) {
             if let touch = touches.first {
                 let location = touch.location(in: self.view)
-                print("start at \(location.x)")
+//                print("start at \(location.x)")
                 beginPoint = location.x
             }
         }
@@ -307,7 +307,7 @@ extension MenuDrawerViewController {
                     //                    self.backViewForDrawer.alpha = 0.75 - (0.75*differenceFromBeginPoint/310 )
                     let alphaValue = 0.75 - (0.75*differenceFromBeginPoint/310 )
                     self.view.backgroundColor = .black.withAlphaComponent(alphaValue)
-                    print("moved at \(differenceFromBeginPoint)====>\(beginPoint)====>\(location.x)")
+//                    print("moved at \(differenceFromBeginPoint)====>\(beginPoint)====>\(location.x)")
                     
                 }
             }
@@ -323,7 +323,7 @@ extension MenuDrawerViewController {
             
             if(difference > 155){
                 //close the side drawer
-                UIView.animate(withDuration: 0.5) {
+                UIView.animate(withDuration: 0.1) {
                     self.drawerView.transform = CGAffineTransform(translationX: -self.drawerView.frame.width, y: 0)
                     //                        self.leadingConstraintForDrawerView.constant = -310  //-320
                 } completion: { (status) in
@@ -378,6 +378,13 @@ extension MenuDrawerViewController {
         drawerTopBarVeiw.layer.addSublayer(bottomBorder)
     }
 }
+
+
+
+
+
+
+
 
 
 //private var frameDrawerView: CGRect = .zero

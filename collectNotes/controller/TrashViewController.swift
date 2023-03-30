@@ -34,7 +34,7 @@ class TrashViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //calling this function CommonCollection view for getting particular screen note data for collection view
-        CommonCollectionBackView.showParticularNotesCollectionData(type: .bin)
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .TrashController)
     }
     
     

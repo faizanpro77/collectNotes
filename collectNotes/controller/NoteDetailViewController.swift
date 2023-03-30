@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KMPlaceholderTextView
 
 class NoteDetailViewController: UIViewController,UITextViewDelegate {
     
@@ -19,11 +20,11 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var bottonBack: UIButton!
     
+   
     @IBOutlet weak var titleTextView: UITextView!
-    @IBOutlet weak var titleTextViewHC: NSLayoutConstraint!
     
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var descriptionTextViewHC: NSLayoutConstraint!
+    
     
     @IBOutlet weak var bottomTabViewBottomConstraint: NSLayoutConstraint!
     
@@ -33,7 +34,17 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     
     @IBOutlet weak var menueBottomSheetButton: UIButton!
     
+    @IBOutlet weak var buttonArchive: UIButton!
     
+    private var isArchive:Bool = false
+    
+    //    @IBOutlet weak var descriptionTextViewHC: NSLayoutConstraint!
+        
+        //    @IBOutlet weak var descriptionTextViewHC: NSLayoutConstraint!
+    
+    //    @IBOutlet weak var titleTextViewHC: NSLayoutConstraint!
+    
+//     @IBOutlet weak var titleTextViewHC: NSLayoutConstraint!
     
     
     
@@ -56,8 +67,9 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
         descriptionTextView.tag = 2
         
         
-        //noteScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
+        noteScrollView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+       
         //        let bottomOffset = CGPoint(x: 0, y: noteScrollView.contentSize.height - noteScrollView.bounds.height + noteScrollView.contentInset.bottom + 150)
         //        noteScrollView.setContentOffset(bottomOffset, animated: true)
         
@@ -67,13 +79,23 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
         setUpNote()
         
         //for adjust dynamic height according to text for textview
-        titleTextViewHC.constant = self.titleTextView.contentSize.height
-        descriptionTextViewHC.constant = self.descriptionTextView.contentSize.height
-        
+//        titleTextViewHC.constant = self.titleTextView.contentSize.height
+//        descriptionTextViewHC.constant = self.descriptionTextView.contentSize.height
+//
         //this code for after showing keyboard bottom tabar move above keyboard not hide behind it
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+        
+        
+        isArchive = note?.archive ?? false
+        
+       
+        
+        let image = isArchive ?  UIImage(systemName: "square.and.arrow.up") : UIImage(systemName: "square.and.arrow.down")
+        buttonArchive.configuration?.background.image = image
+        
+        
         
     }
     
@@ -154,16 +176,75 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
                 }
             }else{
                 self.dismiss(animated: true)
-                print("==========>only dismiss or note Not edit")
+//                print("==========>only dismiss or note Not edit")
             }
-            
-            
             
             
             //        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             
         }
     }
+    
+   
+    @IBAction func archiveNote(_ sender: UIButton) {
+        
+//        print("isArchive==========>\(isArchive)")
+//        isArchive.toggle()
+//        print("isArchive==========>\(isArchive)")
+//        let image = isArchive ? UIImage(systemName: "square.and.arrow.down") : UIImage(systemName: "square.and.arrow.up")
+//        buttonArchive.configuration?.background.image = image
+//        updateArchive()
+//        var image:UIImage
+       
+        if isArchive {
+            buttonArchive.configuration?.background.image = UIImage(systemName: "square.and.arrow.down")
+            note?.archive = false
+            isArchive = false
+           
+        } else {
+            
+            buttonArchive.configuration?.background.image = UIImage(systemName: "square.and.arrow.up")
+            note?.archive = true
+            isArchive = true
+        }
+        updateArchive()
+    
+    }
+    
+    
+    private func updateArchive() {
+        
+       
+        FirebaseNoteService().updateDocument(note: note!) { (status, errorMaassege) in
+           
+            if status == true {
+                //dismiss controller
+                self.dismiss(animated: true)
+                
+            } else {
+                
+                //show error
+   //                print("Note note restore")
+            }
+        }
+        
+    }
+    
+    /**
+     
+     note?.trash = false
+     
+     FirebaseNoteService().updateDocument(note: note!) { (status, errorMassege) in
+         if status == true {
+             self.hideBottomSheet()
+             self.dismiss(animated: true)
+         } else {
+             //show error
+//                print("Note note restore")
+         }
+     }
+     */
+    
     
     @objc func keyboardWillShow(sender: NSNotification) {
         
@@ -209,38 +290,6 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     }
     
     
-    //    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    //        print("=============>shouldChangeTextIn")
-    //
-    //        if text == "\n" {
-    ////            descriptionTextView.becomeFirstResponder()
-    ////            descriptionTextView.beco
-    //            return false
-    //        }
-    //        return true
-    //    }
-    //if touch screen it hide keyboard
-    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        self.view.endEditing(true)
-    //    }
-    
-    
-    //    Tells the delegate when the user changes the text or attributes in the specified text view and call after updating UI
-    
-    func textViewDidChange(_ textView: UITextView) {
-        //            print("====================>textViewDidChange")
-        //auto content height of textview
-        textView.isScrollEnabled = true
-        titleTextViewHC.constant = self.titleTextView.contentSize.height
-        descriptionTextViewHC.constant = self.descriptionTextView.contentSize.height
-        
-        textView.isScrollEnabled = true
-        
-        
-    }
-    
-    
-    
     @IBAction func menueBottomSheet(_ sender: Any) {
         
         if let menueSheetVC = self.storyboard?.instantiateViewController(withIdentifier: "MenueBottomSheetViewController") as? MenueBottomSheetViewController {
@@ -258,24 +307,11 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
                 
             }
             
-            
-            
             self.present(menueSheetVC, animated: true)
         }
     }
     
-    /**
-     
-     FirebaseNoteService().updateDocument(note: note!) { (status, errorMessage) in
-     
-     if status == true {
-     self.dismiss(animated: true)
-     } else {
-     //show error
-     print("Error while updating the note \(errorMessage ?? "null")")
-     }
-     }
-     */
+    
     
     
     func deleteTheNote() {
@@ -320,10 +356,25 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
     
     
     
+    
+    
     //   ====================================
     
 }
 
+
+/**
+ 
+ FirebaseNoteService().updateDocument(note: note!) { (status, errorMessage) in
+ 
+ if status == true {
+ self.dismiss(animated: true)
+ } else {
+ //show error
+ print("Error while updating the note \(errorMessage ?? "null")")
+ }
+ }
+ */
 
 /**
  
@@ -340,3 +391,34 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
  }
  
  */
+
+
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        print("=============>shouldChangeTextIn")
+//
+//        if text == "\n" {
+////            descriptionTextView.becomeFirstResponder()
+////            descriptionTextView.beco
+//            return false
+//        }
+//        return true
+//    }
+//if touch screen it hide keyboard
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
+
+
+//    Tells the delegate when the user changes the text or attributes in the specified text view and call after updating UI
+
+//    func textViewDidChange(_ textView: UITextView) {
+//        //            print("====================>textViewDidChange")
+//        //auto content height of textview
+//        textView.isScrollEnabled = true
+////        titleTextViewHC.constant = self.titleTextView.contentSize.height
+////        descriptionTextViewHC.constant = self.descriptionTextView.contentSize.height
+////
+//        textView.isScrollEnabled = true
+//
+//
+//    }

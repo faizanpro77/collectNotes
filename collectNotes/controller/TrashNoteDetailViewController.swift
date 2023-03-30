@@ -27,6 +27,7 @@ class TrashNoteDetailViewController: UIViewController {
         
         self.threeDotMeneuBottomSheetButton.transform = self.threeDotMeneuBottomSheetButton.transform.rotated(by: CGFloat(Double.pi/2))
         
+        //it for top buttom space
         scroller.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
         setUpNotes()
@@ -96,7 +97,7 @@ class TrashNoteDetailViewController: UIViewController {
                 self.dismiss(animated: true)
             } else {
                 //show error
-                print("Note note restore")
+//                print("Note note restore")
             }
         }
         

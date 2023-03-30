@@ -183,39 +183,6 @@ extension LoginTableViewController {
         //            return UITableView.automaticDimension
     }
     
-    
-    
-    //    //this code is use for center the all content or UI in the ipad
-    //    //this method called after viewDidLoad and landscap and potrate and layout change
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        let tableViewHeight = self.tableView.frame.height
-    //        let contentHeight = self.tableView.contentSize.height
-    //
-    //        let centeringInset = (tableViewHeight - contentHeight) / 2.0
-    //        let topInset = max(centeringInset, 0.0)
-    //
-    //        self.tableView.contentInset = UIEdgeInsets(top: topInset, left: 0.0, bottom: 0.0, right: 0.0)
-    //    }
-    
-    
-    //    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    //        nil
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //        nil
-    //    }
-    //
-    //
-    //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    //        0
-    //    }
-    //
-    //    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    //        0
-    //    }
-    
 }
 
 
@@ -280,3 +247,35 @@ extension LoginTableViewController: LoginButtonDelegate {
  */
 
 //iq keybord third party
+
+
+//    //this code is use for center the all content or UI in the ipad
+//    //this method called after viewDidLoad and landscap and potrate and layout change
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        let tableViewHeight = self.tableView.frame.height
+//        let contentHeight = self.tableView.contentSize.height
+//
+//        let centeringInset = (tableViewHeight - contentHeight) / 2.0
+//        let topInset = max(centeringInset, 0.0)
+//
+//        self.tableView.contentInset = UIEdgeInsets(top: topInset, left: 0.0, bottom: 0.0, right: 0.0)
+//    }
+
+
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        nil
+//    }
+//
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        nil
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        0
+//    }

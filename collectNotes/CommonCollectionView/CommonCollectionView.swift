@@ -7,6 +7,18 @@
 
 import UIKit
 
+
+
+enum CommonCollectionController {
+    
+    case dashboardController
+    case archiveController
+    case TrashController
+//    case SearchController
+    
+}
+
+
 //@IBDesignable
 class CommonCollectionView: UIView {
     
@@ -16,42 +28,22 @@ class CommonCollectionView: UIView {
     //protocol type variable for calling function
     //    var showNoteDetailsProtocolDelegate: ShowNoteDetailsDelegate?
     
-    
-    
     @IBOutlet var containerView: UIView!
     
-    //it is callback variable for calling archive function
-    var showNotesDetailsViewControllerCallback: ((Note) -> ())?
     
-    
-    
-    //    @IBOutlet weak var lblTitle: UILabel!
-    
-    //    var archiveNotes: [Note] = [Note(title: "Loading", description: "......", id: "1",trash: false, archive: false)]
-    //    var binNotesData: [Note] = [Note(title: "Loading", description: "......", id: "1",trash: false, archive: false)]
-    //
-    
-    //    var commonNoteData: [Note] = [Note(title: "Loading", description: "......", id: "1",trash: false, archive: false)]
     
     var filterNoteData: [Note] = [Note(title: "Loading", description: "......", id: "1",trash: false, archive: false)]
     
-    //
-    //    func getNoteData() {
-    //
-    //        FirebaseNoteService().toGetNotesData{ (notesData) in
-    //            self.commonNoteData = notesData
-    //
-    //
-    //            self.filterNoteData = self.commonNoteData.filter{$0.archive == true}
-    //            self.filterNoteData = self.commonNoteData.filter{$0.trash == true}
-    //
-    //            self.commonCollection.reloadData()
-    //        }
-    //
-    //    }
+    //it is callback variable for calling archive function
+    var showNotesDetailsViewControllerCallback: ((Note) -> ())?
+
+    // clean Note Array initial data or default data for search screen
+    func cleanArrayInitialData() {
+        let emptyArray: [Note] = []
+        filterNoteData = emptyArray
+    }
     
-    
-    func getNotes(isArchive:Bool = false, isTrash:Bool = false, isNotes:Bool = false) {
+    func getNotes(isArchive:Bool = false, isTrash:Bool = false, isNotes:Bool = false, isSearch:Bool = false, searchString:String = "") {
         FirebaseNoteService().toGetNotesData{ (notesData) in
             
             if isArchive == true {
@@ -60,6 +52,10 @@ class CommonCollectionView: UIView {
                 self.filterNoteData = notesData.filter{$0.trash == true }
             } else if isNotes == true {
                 self.filterNoteData = notesData.filter{$0.trash == false &&  $0.archive == false  }
+            } else if isSearch == true {
+                self.filterNoteData = notesData.filter({
+                    $0.title.range(of: searchString, options: .caseInsensitive) != nil || $0.description.range(of: searchString, options: .caseInsensitive) != nil
+                })
             }
             
             self.commonCollection.reloadData()
@@ -68,48 +64,26 @@ class CommonCollectionView: UIView {
     }
     
     
-    //     func getArchiveNotes() {
-    //         FirebaseNoteService().toGetNotesData{ (notesData) in
-    //             self.filterNoteData = notesData.filter{$0.archive == true}
-    //             self.commonCollection.reloadData()
-    //         }
-    //
-    //     }
     
-    
-    //    func getBinNotes() {
-    //
-    //        FirebaseNoteService().toGetNotesData { (notesData) in
-    //            self.filterNoteData = notesData.filter{$0.trash == true}
-    //            self.commonCollection.reloadData()
-    //
-    //        }
-    //
-    //    }
     
     //    var notes:[String] = ["Bedsheets","dsheets&Bedsheets","good boy","hero panti","Furniture","kitchen","plane","bike","good","boy","Bedsheets","dsheets&Bedsheets","good boy","hero panti","Furniture","kitchen","plane","bike","good"]
     
     //    var notes:[String] = ["loading.."]
     
     
-    func showParticularNotesCollectionData (type:DrawerItemType) {
+    func showParticularNotesCollectionData (type:CommonCollectionController) {
         
         switch type {
-        case .archive:
-            print("commonCollection==============>>archive")
+        case .archiveController:
+//            print("commonCollection==============>>archive")
             getNotes(isArchive:true)
-            //            getArchiveNotes()
             
-            
-            
-            
-        case .bin:
-            print("commonCollection==============>>bin")
+        case .TrashController:
+//            print("commonCollection==============>>bin")
             getNotes(isTrash: true)
-            //            getBinNotes()
             
-        case .notes:
-            print("commonCollection==============>>bin")
+        case .dashboardController:
+//            print("commonCollection==============>>dashboard")
             getNotes(isNotes: true)
             
         default:

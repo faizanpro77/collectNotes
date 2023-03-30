@@ -90,7 +90,7 @@ class FirebaseNoteService {
         
         let db = Firestore.firestore()
         let document = db.collection("notesData").document(userId).collection("notes")
-        document.document(note.id).setData(["title": note.title, "description": note.description, "trash": note.trash], merge: true) { (error) in
+        document.document(note.id).setData(["title": note.title, "description": note.description, "trash": note.trash, "archive": note.archive], merge: true) { (error) in
             if error != nil {
                 //we have an error
                 completion(false, error?.localizedDescription)

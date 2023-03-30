@@ -77,7 +77,7 @@ class DashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //calling this function CommonCollection view for getting particular screen note data for collection view
-        CommonCollectionBackView.showParticularNotesCollectionData(type: .notes)
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .dashboardController)
         
     }
     
@@ -110,7 +110,7 @@ class DashboardViewController: UIViewController {
     
     @IBAction func showProfile(_ sender: UIButton) {
         
-        //        print("==========> inside show profile====")
+                print("==========> inside show profile====")
         if UserManager.shared.getToken() != nil {
             let firbaseAuth = Auth.auth()
             do {
@@ -159,6 +159,17 @@ class DashboardViewController: UIViewController {
         //toggle() change boolean valur of variable true/false
         CommonCollectionBackView.changeGridList(gridList: isGridListActive)
     }
+    
+    @IBAction func buttonSearchNotes(_ sender: UIButton) {
+        
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as!
+        SearchViewController
+        searchVC.modalPresentationStyle = .fullScreen
+        present(searchVC, animated: true)
+    }
+    
+    
+    
 }
 
 

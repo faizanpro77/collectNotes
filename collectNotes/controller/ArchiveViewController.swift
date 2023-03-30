@@ -46,7 +46,7 @@ class ArchiveViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //calling this function CommonCollection view for getting particular screen note data for collection view
-        CommonCollectionBackView.showParticularNotesCollectionData(type: .archive)
+        CommonCollectionBackView.showParticularNotesCollectionData(type: .archiveController)
         
     }
     

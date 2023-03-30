@@ -41,17 +41,18 @@
  {complete today this project}(12pm)
  first implemnt front or first diplay feature or implement important less feature
  
- 1)Archive,trash,update from dashboard,restore
- 2)updat dashboard note screen  like trash screen
- 3)search
- 4)colour palet---- buttom sheet
- 5)profile logout
  
- delete permenant
+ 5)profile logout
+ 4)colour palet---- buttom sheet
+
+ 
+
+ 6)landscap potrate safe area view
  notification(only see video)
  
  
 ---------------
+ delete permenant
  2)pin
  --------------
  11)long presss dashboard
@@ -95,6 +96,10 @@
  
  
  **die list**
+ 
+ 3)search
+ 1)Archive
+ 2)updat dashboard note screen  like trash screen
  1)check firebase work
  2)login signup navigation to dashboard...
  3)work on save token in ns user default login,singnup,

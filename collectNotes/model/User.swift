@@ -7,6 +7,14 @@
 
 import Foundation
 
+
+struct UserData:Codable {
+    
+    var email:String
+    var userName:String
+   
+}
+
 //struct User {
 //    var email
 //    var uid

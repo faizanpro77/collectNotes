@@ -36,9 +36,17 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var ViewBottomTabBar: UIView!
     @IBOutlet weak var ButtonCreateNewNote: UIButton!
     @IBOutlet weak var gridListButton: UIButton!
-    
     @IBOutlet weak var CommonCollectionBackView: CommonCollectionView!
+    @IBOutlet weak var imageModalProfile: UIImageView!
+    @IBOutlet weak var buttonLogout: UIButton!
+    @IBOutlet weak var viewModalProfile: UIView!
+    @IBOutlet weak var viewBackModalProfileTrasperent: UIView!
     
+    @IBOutlet weak var labelUserName: UILabel!
+    
+    @IBOutlet weak var labelUserEmail: UILabel!
+    
+    var userInformation: [UserData] = [UserData(email: "Loading", userName: ".....")]
     
     //    var checkFirebaseLogin = Auth.auth().currentUser?.uid
     var isGridListActive:Bool = false
@@ -59,7 +67,9 @@ class DashboardViewController: UIViewController {
             CommonCollectionBackView.isHidden = true
             ViewBottomTabBar.isHidden = true
             ButtonCreateNewNote.isHidden = true
+            
         }
+        
         
         
         CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
@@ -68,6 +78,27 @@ class DashboardViewController: UIViewController {
             
         }
         
+        viewBackModalProfileTrasperent.isHidden = true
+        viewModalProfile.layer.cornerRadius = 10
+        
+        imageModalProfile.layer.cornerRadius = imageModalProfile.frame.height/2
+        imageModalProfile.clipsToBounds = true
+        
+        //decorate logout button
+        
+        //            buttonLogout.layer.cornerRadius = 20
+        //            buttonLogout.layer.borderColor = UIColor.lightGray.cgColor
+        //            buttonLogout.layer.borderWidth = 1
+        
+        
+        buttonLogout.configuration?.title = "Logout"
+        buttonLogout.configuration?.background.strokeColor = .lightGray
+        buttonLogout.configuration?.cornerStyle = .capsule
+        buttonLogout.configuration?.background.strokeWidth = 1
+        buttonLogout.configuration?.baseForegroundColor = .black
+        
+    
+    
     }
     
     
@@ -110,18 +141,41 @@ class DashboardViewController: UIViewController {
     
     @IBAction func showProfile(_ sender: UIButton) {
         
-                print("==========> inside show profile====")
-        if UserManager.shared.getToken() != nil {
-            let firbaseAuth = Auth.auth()
-            do {
-                try firbaseAuth.signOut()
-                print("Logout Successful From Firebase")
-            } catch let err {
-                print("Firebase error--->",err)
-            }
-            gotoLoginScreen()
+        viewBackModalProfileTrasperent.isHidden = false
+        viewBackModalProfileTrasperent.backgroundColor  = UIColor.black.withAlphaComponent(0.50)
+        viewModalProfile.backgroundColor = UIColor.white
+        getUserData()
+        
+    }
+    
+  
+    func getUserData() {
+        
+        AuthService().toGetUserData { (userData) in
+//            print("=============999===> \(userData)")
+            self.userInformation = userData
+            self.labelUserEmail.text =  self.userInformation[0].email
+            self.labelUserName.text = self.userInformation[0].userName
+            
         }
     }
+    
+    
+    @IBAction func Logout(_ sender: UIButton) {
+        
+        //                print("==========> inside  Logout====")
+                if UserManager.shared.getToken() != nil {
+                    let firbaseAuth = Auth.auth()
+                    do {
+                        try firbaseAuth.signOut()
+                        print("Logout Successful From Firebase")
+                    } catch let err {
+                        print("Firebase error--->",err)
+                    }
+                    gotoLoginScreen()
+                }
+    }
+    
     
     func gotoLoginScreen() {
         
@@ -138,6 +192,13 @@ class DashboardViewController: UIViewController {
         //        self.present(logintableVc, animated: false, completion: nil)
         
     }
+    
+    
+    @IBAction func closeModalProfile(_ sender: UIButton) {
+        
+        viewBackModalProfileTrasperent.isHidden = true
+    }
+    
     
     @IBAction func addNewNote(_ sender: Any) {
         
@@ -217,6 +278,17 @@ extension DashboardViewController: MenuDrawerViewControllerDelegate{
     }
     
 }
+
+
+//ios 15 configrature
+//            buttonLogout.configuration = .gray() //background
+//            buttonLogout.configuration?.title = "Learn More"
+//            buttonLogout.configuration?.baseForegroundColor = .systemPink
+//            buttonLogout.configuration?.image = UIImage(systemName: "book.fill")
+//            buttonLogout.configuration?.imagePadding = 6
+//            buttonLogout.configuration?.baseBackgroundColor = .white
+//            buttonLogout.configuration?.imagePlacement = .leading
+//            buttonLogout.configuration?.subtitle = "is fun to lun"
 
 
 

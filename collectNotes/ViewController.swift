@@ -42,7 +42,7 @@
  first implemnt front or first diplay feature or implement important less feature
  
  
- 5)profile logout
+ 
  4)colour palet---- buttom sheet
 
  
@@ -87,7 +87,7 @@
  
  **pending**
  1)text view placeholder note work like after entering go to next textview field and after entering not go to next line...textview place after enrter go in to next text view after press enter not working
- 2)text view show only some after scrolling it left some text after entering character it show full text after scrolling
+ 
  3)after creating empty note go to deshboard and show notification notification (demo)
  4)after touching drawer close and open and move inside
  5) dashboard scroll with top bar and archive screen
@@ -97,6 +97,8 @@
  
  **die list**
  
+ 2)text view show only some after scrolling it left some text after entering character it show full text after scrolling
+ 5)profile logout
  3)search
  1)Archive
  2)updat dashboard note screen  like trash screen

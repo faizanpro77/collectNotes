@@ -16,7 +16,7 @@ Single-handedly developed the CollectNotes app from scratch
 ➢ Image loading library
 
  
-## Screenshots
+## Screenshots 
 <br/>
 <br/>
 

@@ -29,7 +29,7 @@ Single-handedly developed the CollectNotes app from scratch
 <br/>
 <br/>
 
-![Screenshot 2023-08-07 at 9 21 16 PM](https://github.com/faizanpro77/collectNotes/assets/83450298/9fd7c662-e27b-4632-b494-05617e88006e)
+![Screenshot 2023-08-19 at 7 22 02 PM](https://github.com/faizanpro77/collectNotes/assets/83450298/ff00f819-aae0-4b50-a1ed-cf9d479018cb)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Screenshot 2023-08-07 at 9 22 23 PM](https://github.com/faizanpro77/collectNotes/assets/83450298/9a69f8af-c129-41f1-a25b-61ffb0595e20)
 

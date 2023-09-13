@@ -56,7 +56,7 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
         
         super.viewDidLoad()
         
-        // i am rotate three dot icone
+        // i am rotate three dot icone Because  i dont get exact button
         self.menueBottomSheetButton.transform = self.menueBottomSheetButton.transform.rotated(by: CGFloat(Double.pi / 2))
         
         titleTextView.delegate = self
@@ -323,6 +323,7 @@ class NoteDetailViewController: UIViewController,UITextViewDelegate {
                 
                 self.dismiss(animated: true)
                 let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+                dashboardVC.modalPresentationStyle = .fullScreen
                 self.present(dashboardVC, animated: true)
                 
             } else {

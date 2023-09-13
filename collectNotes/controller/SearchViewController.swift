@@ -27,6 +27,7 @@ class SearchViewController: UIViewController {
 
         viewCommonCollectionBack.cleanArrayInitialData()
         
+        //callback --- calling showNoteDetailsViewcontroller() from CommonCollection file
         viewCommonCollectionBack.showNotesDetailsViewControllerCallback = {(noteItem) in
             self.showNoteDetailsViewcontroller(note: noteItem)
         }

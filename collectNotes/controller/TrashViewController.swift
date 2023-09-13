@@ -58,6 +58,7 @@ class TrashViewController: UIViewController {
     }
     
     
+    //open selected note in editor
     func showTrashNoteDetailsViewController(note: Note) {
        
         let trashNoteViewCotroller = self.storyboard?.instantiateViewController(withIdentifier: "TrashNoteDetailViewController") as! TrashNoteDetailViewController
@@ -90,6 +91,7 @@ class TrashViewController: UIViewController {
 
 
 extension TrashViewController: MenuDrawerViewControllerDelegate {
+    //open perticular scren from drawer selected menue
     func presentNewController(drawerItemType: DrawerItemType) {
 //        print("==============>>protocol work good,\(drawerItemType)")
         

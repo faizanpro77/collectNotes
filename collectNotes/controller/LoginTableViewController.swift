@@ -22,17 +22,17 @@ class LoginTableViewController: UITableViewController {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnFacebook: FBLoginButton!
-
-        weak var loginDelegate: LoginSuccessDelegate?
-  
+    
+    weak var loginDelegate: LoginSuccessDelegate?
+    
     
     
     
     @IBAction func autoFillPassword(_ sender: UIButton) {
-    
+        
         txtEmail.text = "faizyshaikh204@gmail.com"
         txtPassword.text = "password7"
-//        print("==================>\(txtEmail.text!)======>\(txtPassword.text!)")
+        //        print("==================>\(txtEmail.text!)======>\(txtPassword.text!)")
     }
     
     
@@ -50,7 +50,7 @@ class LoginTableViewController: UITableViewController {
     }
     
     
-   
+    
     @IBAction func btnLoginClicked(_ sender: UIButton) {
         emailPasswordValidation()
     }
@@ -78,18 +78,18 @@ class LoginTableViewController: UITableViewController {
         
         print("navigate to dashboard")
         loginDelegate?.loginSuccess(faizString: "faizan login sucessful protocol")
-
+        
         self.navigationController?.popViewController(animated: true)
-       
+        
         //to dismiss present controller
-//        self.dismiss(animated: true)
+        //        self.dismiss(animated: true)
     }
     
     
     
-
+    
     @IBAction func btnForgotPswd(_ sender: UIButton) {
-         
+        
         Auth.auth().sendPasswordReset(withEmail: self.txtEmail.text!) { error in
             if error != nil {
                 print("Failed - \(String(describing: error?.localizedDescription))")
@@ -99,16 +99,16 @@ class LoginTableViewController: UITableViewController {
         }
     }
     
-
+    
     
     @IBAction func btnSignupClicked(_ sender: UIButton) {
         
-//        if let signupVC = self.storyboard?.instantiateViewController(identifier: "SignupTableViewController") as? SignupTableViewController {
-//            self.navigationController?.pushViewController(signupVC, animated: true)
-//        }
+        //        if let signupVC = self.storyboard?.instantiateViewController(identifier: "SignupTableViewController") as? SignupTableViewController {
+        //            self.navigationController?.pushViewController(signupVC, animated: true)
+        //        }
         
         let signupVC = self.storyboard?.instantiateViewController(identifier: "SignupTableViewController") as! SignupTableViewController
-            self.navigationController!.pushViewController(signupVC, animated: true)
+        self.navigationController!.pushViewController(signupVC, animated: true)
         
     }
     
@@ -200,11 +200,11 @@ extension LoginTableViewController{
             
             if !email.validateEmailId(){
                 openAlert(title: "Alert", message: "Email Address not found.", alertStyle: .alert, actionTitles: ["okay"], actionStyles: [.default], actions: [{ _ in
-//                    print("okay clicked")
+                    //                    print("okay clicked")
                 }])
             }else if !password.validatePassword(){
                 openAlert(title: "Alert", message: "Please Enter valid Password", alertStyle: .alert, actionTitles: ["okay"], actionStyles: [.default], actions: [{ _ in
-//                    print("okay clicked")
+                    //                    print("okay clicked")
                 }])
                 
             }else {
@@ -213,12 +213,15 @@ extension LoginTableViewController{
             }
         }else {
             openAlert(title: "Alert", message: "Please add details.", alertStyle: .alert, actionTitles: ["okay"], actionStyles: [.default], actions: [{ _ in
-//                print("okay clicked")
+                //                print("okay clicked")
             }])
             
         }
     }
 }
+
+//=============================================================
+//not calling this function from any where
 
 extension LoginTableViewController: LoginButtonDelegate {
     //this function called after click to login button
@@ -234,7 +237,7 @@ extension LoginTableViewController: LoginButtonDelegate {
     
     //this function called after click to logout  button if we login with facebook
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-//        print("===============>>Logout")
+        //        print("===============>>Logout")
     }
 }
 

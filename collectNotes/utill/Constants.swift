@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct Constants {
     struct StoryBoard {
         static let loginTableViewController = "LoginTableViewController"
@@ -16,8 +14,8 @@ struct Constants {
     }
 }
 
-
 struct UserDefaultsKey {
     static let uid = "uid"
 }
 
+// this is constant file

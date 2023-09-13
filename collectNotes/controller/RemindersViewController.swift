@@ -25,6 +25,7 @@ class RemindersViewController: UIViewController {
     @IBAction func openSideDrawer(_ sender: UIButton) {
         
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "MenuDrawerViewController") as! MenuDrawerViewController
+        //pass reference for using protoco here protocol declear in SideDrawer vc
         VC.presentNewScreenDelegate = self
         VC.modalPresentationStyle = .overCurrentContext
         self.present(VC, animated: false)
@@ -36,6 +37,8 @@ class RemindersViewController: UIViewController {
 }
 
 extension RemindersViewController:MenuDrawerViewControllerDelegate{
+    
+//    it is protoco function protocol declear in side drower
     func presentNewController(drawerItemType: DrawerItemType) {
 //        print("==============>>protocol work good,\(drawerItemType)")
         
@@ -67,4 +70,19 @@ extension RemindersViewController:MenuDrawerViewControllerDelegate{
 //            present(TrashVC, animated: true)
 //
 //        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

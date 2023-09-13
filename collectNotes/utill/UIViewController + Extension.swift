@@ -10,6 +10,8 @@ import UIKit
 
 
 //this code for dissmiss keyboard after touch on view it common class UIViewController all controller
+
+// i am not using this any where both funtion
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

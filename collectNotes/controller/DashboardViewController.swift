@@ -3,7 +3,8 @@
 //  collectNotes
 //
 //  Created by MD Faizan on 15/01/23.
-//
+
+//MARK:  review 147
 
 import UIKit
 import FirebaseAuth
@@ -50,7 +51,9 @@ class DashboardViewController: UIViewController {
     
     //    var checkFirebaseLogin = Auth.auth().currentUser?.uid
     var isGridListActive:Bool = false
+    //not in use
     var sideDrawerViewController:SideDrawerViewController?
+    
     private var isSideDrawerMenuShown:Bool = false
     private var beginPoint:CGFloat = 0.0
     private var difference:CGFloat = 0.0
@@ -71,7 +74,9 @@ class DashboardViewController: UIViewController {
         }
         
         
+        //after clicking on commonColletion view xib card that particulat card data pass here and  i call showNoteDetailsViewcontroller this function and pass data open card data in editor NoteDetailViewController
         
+        //callback --- calling showNoteDetailsViewcontroller() from CommonCollection file
         CommonCollectionBackView.showNotesDetailsViewControllerCallback = { (notItem) in
             //            self.showNoteDetailsViewcontroller(note: notItem)
             self.showNoteDetailsViewcontroller(note: notItem)
@@ -97,8 +102,8 @@ class DashboardViewController: UIViewController {
         buttonLogout.configuration?.background.strokeWidth = 1
         buttonLogout.configuration?.baseForegroundColor = .black
         
-    
-    
+        
+        
     }
     
     
@@ -148,11 +153,11 @@ class DashboardViewController: UIViewController {
         
     }
     
-  
+    
     func getUserData() {
         
         AuthService().toGetUserData { (userData) in
-//            print("=============999===> \(userData)")
+            //            print("=============999===> \(userData)")
             self.userInformation = userData
             self.labelUserEmail.text =  self.userInformation[0].email
             self.labelUserName.text = self.userInformation[0].userName
@@ -164,16 +169,16 @@ class DashboardViewController: UIViewController {
     @IBAction func Logout(_ sender: UIButton) {
         
         //                print("==========> inside  Logout====")
-                if UserManager.shared.getToken() != nil {
-                    let firbaseAuth = Auth.auth()
-                    do {
-                        try firbaseAuth.signOut()
-                        print("Logout Successful From Firebase")
-                    } catch let err {
-                        print("Firebase error--->",err)
-                    }
-                    gotoLoginScreen()
-                }
+        if UserManager.shared.getToken() != nil {
+            let firbaseAuth = Auth.auth()
+            do {
+                try firbaseAuth.signOut()
+                print("Logout Successful From Firebase")
+            } catch let err {
+                print("Firebase error--->",err)
+            }
+            gotoLoginScreen()
+        }
     }
     
     
@@ -218,6 +223,7 @@ class DashboardViewController: UIViewController {
         gridListButton.configuration?.image = image
         
         //toggle() change boolean valur of variable true/false
+        //CommonCollectionBackView is iboutlet of  CommonCollectionBackView type
         CommonCollectionBackView.changeGridList(gridList: isGridListActive)
     }
     

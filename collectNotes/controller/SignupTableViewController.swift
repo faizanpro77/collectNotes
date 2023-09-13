@@ -31,10 +31,14 @@ class SignupTableViewController: UITableViewController {
     }
     
     
+    fileprivate func extractedFunc() {
+        //        print("image tapped")
+        openGallery()
+    }
+    
     @objc
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-//        print("image tapped")
-        openGallery()
+        extractedFunc()
     }
     
     @IBAction func btnSignupClicked(_ sender: Any) {

@@ -20,9 +20,6 @@ class ArchiveViewController: UIViewController {
     
     var isGridListActive:Bool = false
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Bar Items"

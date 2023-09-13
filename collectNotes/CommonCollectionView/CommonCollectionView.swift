@@ -5,9 +5,9 @@
 //  Created by MD Faizan on 11/03/23.
 //
 
+
+//MARK: it is a common collection view xib file
 import UIKit
-
-
 
 enum CommonCollectionController {
     
@@ -17,6 +17,7 @@ enum CommonCollectionController {
 //    case SearchController
     
 }
+
 
 
 //@IBDesignable

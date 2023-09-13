@@ -27,9 +27,9 @@ extension UIViewController {
     
     
     func presentDrawerControllers(type: DrawerItemType) {
-//        let commonCollectionView = CommonCollectionView()
-//        commonCollectionView.showParticularNotesCollectionData(type: type)
-    
+        //        let commonCollectionView = CommonCollectionView()
+        //        commonCollectionView.showParticularNotesCollectionData(type: type)
+        
         switch type {
         case .notes:
             

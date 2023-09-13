@@ -13,19 +13,19 @@ import UIKit
 extension UIViewController {
     
     func  showNoteDetailsViewcontroller(note: Note){
-
-//        print("==========================>>>archiveNoteData===\(note)")
-
+        
+        //        print("==========================>>>archiveNoteData===\(note)")
+        
         guard  let noteDetailController = self.storyboard?.instantiateViewController(withIdentifier: "NoteDetailViewController") as? NoteDetailViewController else {
             return
         }
-
-
+        
+        
         noteDetailController.modalPresentationStyle = .fullScreen
         noteDetailController.note = note
         noteDetailController.noteType = .update
         present(noteDetailController, animated: true, completion: nil)
-
-
+        
+        
     }
 }

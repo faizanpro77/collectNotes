@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1BB7CFC00AE022C70C3B6A /* Pods_collectNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6650C1DA7457B6DEC6BC79FE /* Pods_collectNotes.framework */; };
 		2B10936D29BC66E2001160C4 /* CommonCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B10936C29BC66E2001160C4 /* CommonCollectionView.xib */; };
 		2B10936F29BC66F5001160C4 /* CommonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B10936E29BC66F5001160C4 /* CommonCollectionView.swift */; };
 		2B10937329BC93CF001160C4 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B10937129BC93CF001160C4 /* CustomCollectionViewCell.swift */; };
@@ -49,9 +48,11 @@
 		2BF7064229D41F2B00460103 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF7064129D41F2B00460103 /* SearchViewController.swift */; };
 		2BF93410298842B100E133DF /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF9340F298842B100E133DF /* NoteDetailViewController.swift */; };
 		2BFA506F2961886C00EE547F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BFA506E2961886C00EE547F /* GoogleService-Info.plist */; };
+		DCB58B693D4027B117C8F088 /* Pods_collectNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734534E3E0E292812A42B1BA /* Pods_collectNotes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22E678DAEAACD8B95C6460C4 /* Pods-collectNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-collectNotes.debug.xcconfig"; path = "Target Support Files/Pods-collectNotes/Pods-collectNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		2B10936C29BC66E2001160C4 /* CommonCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonCollectionView.xib; sourceTree = "<group>"; };
 		2B10936E29BC66F5001160C4 /* CommonCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCollectionView.swift; sourceTree = "<group>"; };
 		2B10937129BC93CF001160C4 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -89,9 +90,8 @@
 		2BF7064129D41F2B00460103 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2BF9340F298842B100E133DF /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		2BFA506E2961886C00EE547F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2CA5202DB09CD9B08478C356 /* Pods-collectNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-collectNotes.debug.xcconfig"; path = "Target Support Files/Pods-collectNotes/Pods-collectNotes.debug.xcconfig"; sourceTree = "<group>"; };
-		6650C1DA7457B6DEC6BC79FE /* Pods_collectNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_collectNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDEFCBD0D5511A0EF5ADC76B /* Pods-collectNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-collectNotes.release.xcconfig"; path = "Target Support Files/Pods-collectNotes/Pods-collectNotes.release.xcconfig"; sourceTree = "<group>"; };
+		5711B97E731CD12FA5F29AAD /* Pods-collectNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-collectNotes.release.xcconfig"; path = "Target Support Files/Pods-collectNotes/Pods-collectNotes.release.xcconfig"; sourceTree = "<group>"; };
+		734534E3E0E292812A42B1BA /* Pods_collectNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_collectNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 				2BB052B2295ECF9A0087163B /* FacebookBasics in Frameworks */,
 				2BB052B0295ECF990087163B /* FacebookAEM in Frameworks */,
 				2BB052B8295ECF9A0087163B /* FacebookLogin in Frameworks */,
-				0F1BB7CFC00AE022C70C3B6A /* Pods_collectNotes.framework in Frameworks */,
 				2BB052B6295ECF9A0087163B /* FacebookGamingServices in Frameworks */,
 				2BB052B4295ECF9A0087163B /* FacebookCore in Frameworks */,
 				2BB052BA295ECF9A0087163B /* FacebookShare in Frameworks */,
+				DCB58B693D4027B117C8F088 /* Pods_collectNotes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +115,8 @@
 		1C72D4B1EE82970F783BACDD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2CA5202DB09CD9B08478C356 /* Pods-collectNotes.debug.xcconfig */,
-				FDEFCBD0D5511A0EF5ADC76B /* Pods-collectNotes.release.xcconfig */,
+				22E678DAEAACD8B95C6460C4 /* Pods-collectNotes.debug.xcconfig */,
+				5711B97E731CD12FA5F29AAD /* Pods-collectNotes.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 				2B7F776C294C64BE0023CC35 /* collectNotes */,
 				2B7F776B294C64BE0023CC35 /* Products */,
 				1C72D4B1EE82970F783BACDD /* Pods */,
-				F8032688FD3712F943BCE9B4 /* Frameworks */,
+				58C31F49A1904A5350A5FA85 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,10 +286,10 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		F8032688FD3712F943BCE9B4 /* Frameworks */ = {
+		58C31F49A1904A5350A5FA85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6650C1DA7457B6DEC6BC79FE /* Pods_collectNotes.framework */,
+				734534E3E0E292812A42B1BA /* Pods_collectNotes.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,11 +301,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B7F7781294C64C20023CC35 /* Build configuration list for PBXNativeTarget "collectNotes" */;
 			buildPhases = (
-				3FECD2FC92EAA8DBFF0B0B95 /* [CP] Check Pods Manifest.lock */,
+				2B7B80FFCEEAAAEB971F2279 /* [CP] Check Pods Manifest.lock */,
 				2B7F7766294C64BE0023CC35 /* Sources */,
 				2B7F7767294C64BE0023CC35 /* Frameworks */,
 				2B7F7768294C64BE0023CC35 /* Resources */,
-				3F107CD102B1A8112E911C10 /* [CP] Embed Pods Frameworks */,
+				2413B8A98EE200D4ABD50C0B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,7 +377,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F107CD102B1A8112E911C10 /* [CP] Embed Pods Frameworks */ = {
+		2413B8A98EE200D4ABD50C0B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -394,7 +394,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-collectNotes/Pods-collectNotes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3FECD2FC92EAA8DBFF0B0B95 /* [CP] Check Pods Manifest.lock */ = {
+		2B7B80FFCEEAAAEB971F2279 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -595,7 +595,7 @@
 		};
 		2B7F7782294C64C20023CC35 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CA5202DB09CD9B08478C356 /* Pods-collectNotes.debug.xcconfig */;
+			baseConfigurationReference = 22E678DAEAACD8B95C6460C4 /* Pods-collectNotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -624,7 +624,7 @@
 		};
 		2B7F7783294C64C20023CC35 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDEFCBD0D5511A0EF5ADC76B /* Pods-collectNotes.release.xcconfig */;
+			baseConfigurationReference = 5711B97E731CD12FA5F29AAD /* Pods-collectNotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
